@@ -2,8 +2,8 @@
 /*
 Plugin Name: Custom Post Type Editor
 Plugin URI: http://om4.com.au/wordpress-plugins/custom-post-type-editor/
-Description: Customise the text labels/names for any registered custom post type.
-Version: 1.0.1
+Description: Customize the text labels or menu names for any registered custom post type using a simple Dashboard user interface.
+Version: 1.0.2-dev
 Author: OM4
 Author URI: http://om4.com.au/
 Text Domain: om4-cpt-editor
@@ -30,8 +30,6 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 
 class OM4_CPT_Editor {
-
-	var $version = '1.0';
 
 	var $db_version = 1;
 
@@ -123,7 +121,7 @@ class OM4_CPT_Editor {
 	/**
 	 * Executed whenever a Post Type is registered (by core, a plugin or a theme).
 	 *
-	 * Override any labels that have been customised, and if we're in the backend save a backup of the original CPT so that we can detect that its been modified.
+	 * Override any labels that have been customized, and if we're in the backend save a backup of the original CPT so that we can detect that its been modified.
 	 *
 	 * @param string $post_type
 	 * @param array $args
@@ -141,7 +139,7 @@ class OM4_CPT_Editor {
 			foreach ( $this->settings['types'][$post_type]['labels'] as $label_name => $label_text ) {
 
 				if ( $label_text != $wp_post_types[$post_type]->labels->$label_name ) {
-					// This label text is customised, so override the default
+					// This label text is customized, so override the default
 					$wp_post_types[$post_type]->labels->$label_name = $label_text;
 				}
 			}
@@ -196,7 +194,7 @@ class OM4_CPT_Editor {
 			foreach ( $builtins_that_need_overrides as $post_type ) {
 
 				if ( !is_array($this->settings['types'][$post_type]['labels']) ) {
-					// The user hasn't customised the labels for this built-in CPT
+					// The user hasn't customized the labels for this built-in CPT
 					continue;
 				}
 
@@ -209,7 +207,7 @@ class OM4_CPT_Editor {
 				foreach ( $admin_labels_that_need_overrides as $label_name_to_override ) {
 
 					if ( isset($this->settings['types'][$post_type]['labels'][$label_name_to_override]) ) {
-						// The user has customised this label
+						// The user has customized this label
 
 						$id = null;
 						$file = null;
@@ -389,7 +387,7 @@ class OM4_CPT_Editor {
 							// Some label text has been entered in the form
 
 							if ( $_POST[$label_name] != $this->cpt_originals[$custom_post_type_name]->labels->{$label_name} ) {
-								// Label text is customised from the default
+								// Label text is customized from the default
 								$this->settings['types'][$custom_post_type_name]['labels'][$label_name] =  $_POST[$label_name];
 								$needs_save = true;
 							} else {
@@ -420,7 +418,7 @@ class OM4_CPT_Editor {
 		?>
 		<form action="" method="post" id="edit_custom_post_type">
 			<h3><?php esc_html_e( 'Labels', 'om4-cpt-editor' );?></h3>
-			<p><?php esc_html_e( 'Here you can customise (override) one or more labels for this Custom Post Type.', 'om4-cpt-editor' ); ?></p>
+			<p><?php esc_html_e( 'Here you can customize (override) one or more labels for this Custom Post Type.', 'om4-cpt-editor' ); ?></p>
 			<p><?php esc_html_e( 'Customised Labels are shown in blue.', 'om4-cpt-editor' ); ?></p>
 			<p><?php esc_html_e( 'To reset a label to its default, empty its text field. To reset all labels to their defaults, use the checkbox below:', 'om4-cpt-editor' ); ?></p>
 			<table class="form-table">
@@ -441,7 +439,7 @@ class OM4_CPT_Editor {
 						<th scope="row"><label for="<?php echo ($label_name); ?>"><?php printf(__('%1s<br />(%2s)', 'om4-cpt-editor'), esc_html($label_info['name']), esc_html($label_name) ); ?></label></th>
 						<td>
 							<?php
-							$class = esc_attr( isset($this->settings['types'][$custom_post_type_name]['labels'][$label_name]) ? 'customised' : 'default' );
+							$class = esc_attr( isset($this->settings['types'][$custom_post_type_name]['labels'][$label_name]) ? 'customized' : 'default' );
 							?>
 							<input name="<?php echo esc_attr($label_name); ?>" type="text" id="<?php esc_attr_e($label_name); ?>" value="<?php esc_attr_e($custom_post_type->labels->$label_name); ?>" class="<?php echo $class; ?>" />
 							<?php
@@ -476,7 +474,7 @@ class OM4_CPT_Editor {
 				#edit_custom_post_type .form-field input[type="checkbox"] {
 					width: auto;
 				}
-				form#edit_custom_post_type .customised {
+				form#edit_custom_post_type .customized {
 					color: blue;
 				}
 			</style>
@@ -488,9 +486,9 @@ class OM4_CPT_Editor {
 							}
 					);
 
-					// When a label text is modified, display it a customised
+					// When a label text is modified, display it a customized
 					$('form#edit_custom_post_type input[type=text]').keyup( function() {
-								$(this).removeClass('default').addClass('customised');
+								$(this).removeClass('default').addClass('customized');
 							}
 					);
 				});
@@ -517,7 +515,7 @@ class OM4_CPT_Editor {
 	}
 
 	/**
-	 * Whether or not the specified Custom Post Type has been customised using this plugin.
+	 * Whether or not the specified Custom Post Type has been customized using this plugin.
 	 *
 	 * @param string $post_type The Custom Post Type name/identifier
 	 * @return bool
@@ -527,7 +525,7 @@ class OM4_CPT_Editor {
 	}
 
 	/**
-	 * The number of customised labels for the specified Custom Post Type
+	 * The number of customized labels for the specified Custom Post Type
 	 * @param string $post_type The Custom Post Type name/identifier
 	 * @return int
 	 */
