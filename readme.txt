@@ -4,7 +4,7 @@ Donate link: http://om4.com.au/wordpress-plugins/#donate
 Tags: custom post type, cpt, post type, label, editor, cms, wp, multisite, wpmu
 Requires at least: 3.2
 Tested up to: 3.4
-Stable tag: trunk
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -51,13 +51,21 @@ No. It uses WordPress' hook/filter to override Custom Post Type definitions on-t
 No. If you deactivate this plugin, your Custom Post Type definitions will revert to their defaults.
 
 = I found a bug. How can I contribute a patch or bug fix? =
+
 We'd love you to fork our [Github Repository](https://github.com/OM4/cpt-editor) and send us a pull request.
+
+Alternatively, you can report a bug on our [Issue Tracker](https://github.com/OM4/cpt-editor/issues).
 
 == Screenshots ==
 1. The list of registered Custom Post Types
 1. The interface for editing a Custom Post Type
 
 == Changelog ==
+
+= 1.0.2 =
+* Documentation updates
+* US spelling
+* Screenshot updates
 
 = 1.0.1 =
 * Add support for customising WordPress' built-in Posts, Pages and Media dashboard menu labels. Thanks to Aaron Rutley for testing this.
@@ -66,6 +74,9 @@ We'd love you to fork our [Github Repository](https://github.com/OM4/cpt-editor)
 * Initial release.
 
 == Upgrade Notice ==
+
+= 1.0.2 =
+* Documentation, spelling and screenshot updates.
 
 = 1.0.1 =
 * Adds support for customising WordPress' built-in Posts, Pages and Media dashboard menu labels.
