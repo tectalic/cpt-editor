@@ -60,5 +60,8 @@ Fork our [Github Repository](https://github.com/OM4/cpt-editor) and send us a pu
 
 == Changelog ==
 
+= 1.0.1 =
+* Add support for customising/overriding WordPress' built-in Posts, Pages and Media dashboard menu labels.
+
 = 1.0 =
 * Initial release.

@@ -3,7 +3,7 @@
 Plugin Name: Custom Post Type Editor
 Plugin URI: http://om4.com.au/wordpress-plugins/custom-post-type-editor/
 Description: Customise the text labels/names for any registered custom post type.
-Version: 1.0
+Version: 1.0.1-beta
 Author: OM4
 Author URI: http://om4.com.au/
 Text Domain: om4-cpt-editor
@@ -69,7 +69,7 @@ class OM4_CPT_Editor {
 
 		$this->url = trailingslashit( plugins_url( '', __FILE__ ) );
 
-		register_activation_hook( __FILE__, array( &$this, 'Activate' ) );
+		register_activation_hook( __FILE__, array( $this, 'Activate' ) );
 
 		add_action( 'plugins_loaded', array( $this, 'LoadDomain' ) );
 
@@ -131,7 +131,7 @@ class OM4_CPT_Editor {
 	function PostTypeRegistered( $post_type, $args ) {
 		global $wp_post_types;
 
-		if ( $this->IsSettingsPage() && !isset($this->cpt_originals[$post_type]) ) {
+		if ( $this->NeedToBackupCustomPostTypes() && !isset($this->cpt_originals[$post_type]) ) {
 			// Save a copy of the original (unmodified) version of this post type
 			$this->cpt_originals[$post_type] = unserialize(serialize( $wp_post_types[$post_type] ));
 		}
@@ -172,6 +172,83 @@ class OM4_CPT_Editor {
 	 */
 	public function AdminMenu() {
 		add_options_page( __( 'Custom Post Types', 'om4-cpt-editor' ), __( 'Custom Post Types', 'om4-cpt-editor' ), 'manage_options', basename( __FILE__ ), array( $this, 'AdminPage' ) );
+
+		$this->OverrideBuiltInCustomPostTypeMenuLabels();
+	}
+
+	/**
+	 * Unfortunately WordPress' built-in Custom Post Types (post, page, attachment) don't automatically use their defined labels in the Dashboard menu.
+	 * Instead, they are hard-coded in wp-admin/menu.php.
+	 *
+	 * This function checks to see if the user has modified the labels for any of these built-in custom post types,
+	 * and if so it manually overrides the dashboard menu so that it uses these defined labels.
+	 */
+	private function OverrideBuiltInCustomPostTypeMenuLabels() {
+		global $menu, $submenu;
+
+		$builtins_that_need_overrides = array(
+			'post'
+			,'page'
+			,'attachment'
+		);
+
+		if ( is_array( $this->settings['types'] ) ) {
+			foreach ( $builtins_that_need_overrides as $post_type ) {
+
+				if ( !is_array($this->settings['types'][$post_type]['labels']) ) {
+					// The user hasn't customised the labels for this built-in CPT
+					continue;
+				}
+
+				// Override built-in CPT labels
+				$admin_labels_that_need_overrides = array(
+					'menu_name'
+					, 'all_items'
+					,'add_new'
+				);
+				foreach ( $admin_labels_that_need_overrides as $label_name_to_override ) {
+
+					if ( isset($this->settings['types'][$post_type]['labels'][$label_name_to_override]) ) {
+						// The user has customised this label
+
+						$id = null;
+						$file = null;
+						// These $id and $file values are taken from wp-admin/menu.php (where they are hard-coded)
+						switch ( $post_type ) {
+							case 'post': // Posts
+								$id = 5;
+								$file = 'edit.php';
+								break;
+							case 'attachment': // Media
+								$id = 10;
+								$file = 'upload.php';
+								break;
+							case 'page'; // Pages
+								$id = 20;
+								$file = 'edit.php?post_type=page';
+								break;
+						}
+
+						if ( !is_null($id) ) {
+							switch ( $label_name_to_override ) {
+								case 'menu_name':
+									if ( isset($menu[$id][0]) )
+										$menu[$id][0] = $this->settings['types'][$post_type]['labels'][$label_name_to_override];
+									break;
+								case 'all_items':
+									if ( isset($submenu[$file][5][0]) )
+										$submenu[$file][5][0] = $this->settings['types'][$post_type]['labels'][$label_name_to_override];
+									break;
+								case 'add_new':
+									if ( isset($submenu[$file][10][0]) )
+										$submenu[$file][10][0] = $this->settings['types'][$post_type]['labels'][$label_name_to_override];
+									break;
+							}
+						}
+					}
+				}
+			}
+		}
 	}
 
 	/**
@@ -246,9 +323,6 @@ class OM4_CPT_Editor {
 		$labels['singular_name']['name'] = __( 'Singular Name:', 'om4-cpt-editor' );
 		$labels['singular_name']['description'] = __('Name for one object of this post type.', 'om4-cpt-editor' );
 
-		$labels['add_new']['name'] = __( 'Add New:', 'om4-cpt-editor' );
-		$labels['add_new']['description'] =  __('The add new text.', 'om4-cpt-editor' );
-
 		$labels['add_new_item']['name'] = __( 'Add New Item:', 'om4-cpt-editor' );
 		$labels['add_new_item']['description'] = __('The add new item text.', 'om4-cpt-editor' );
 
@@ -278,7 +352,10 @@ class OM4_CPT_Editor {
 		$labels['menu_name']['description'] = __('The text used in the Dashboard\'s top level menu.', 'om4-cpt-editor' );
 
 		$labels['all_items']['name'] = __( 'All Items:', 'om4-cpt-editor' );
-		$labels['all_items']['description'] = __('The text used in the Dashboard menu\'s \'all items\' menu item.', 'om4-cpt-editor' );
+		$labels['all_items']['description'] = __('The text used in the Dashboard menu\'s \'all items\' submenu item.', 'om4-cpt-editor' );
+
+		$labels['add_new']['name'] = __( 'Add New:', 'om4-cpt-editor' );
+		$labels['add_new']['description'] =  __('The text used in the Dashboard menu\'s \'add new\' submenu item.', 'om4-cpt-editor' );
 
 		$labels['name_admin_bar']['name'] = __( 'Admin Bar Name:', 'om4-cpt-editor' );
 		$labels['name_admin_bar']['description'] = __('The text used in the Admin Bar\'s \'New\' menu.', 'om4-cpt-editor' );
