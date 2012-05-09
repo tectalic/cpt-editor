@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Custom Post Type Editor package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Custom Post Type Editor 1.0\n"
+"Project-Id-Version: Custom Post Type Editor 1.0.1\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/cpt-editor\n"
-"POT-Creation-Date: 2012-05-09 00:32:19+00:00\n"
+"POT-Creation-Date: 2012-05-09 03:59:47+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -16,192 +16,192 @@ msgstr ""
 msgid "Custom Post Types"
 msgstr ""
 
-#: cpt-editor.php:204
+#: cpt-editor.php:281
 msgid "Registered Custom Post Types"
 msgstr ""
 
-#: cpt-editor.php:205
+#: cpt-editor.php:282
 msgid ""
 "Below is a list of registered custom post types. These post types are "
 "typically registered by WordPress core, WordPress themes or WordPress "
 "plugins."
 msgstr ""
 
-#: cpt-editor.php:206
+#: cpt-editor.php:283
 msgid "Click on a post type to view its details."
 msgstr ""
 
-#: cpt-editor.php:229
+#: cpt-editor.php:306
 msgid "Invalid Custom Post Type"
 msgstr ""
 
-#: cpt-editor.php:238
+#: cpt-editor.php:315
 msgid "Edit '%s' Custom Post Type"
 msgstr ""
 
-#: cpt-editor.php:243
+#: cpt-editor.php:320
 msgid "Name:"
 msgstr ""
 
-#: cpt-editor.php:244
+#: cpt-editor.php:321
 msgid "General name for the post type, usually plural."
 msgstr ""
 
-#: cpt-editor.php:246
+#: cpt-editor.php:323
 msgid "Singular Name:"
 msgstr ""
 
-#: cpt-editor.php:247
+#: cpt-editor.php:324
 msgid "Name for one object of this post type."
 msgstr ""
 
-#: cpt-editor.php:249
-msgid "Add New:"
-msgstr ""
-
-#: cpt-editor.php:250
-msgid "The add new text."
-msgstr ""
-
-#: cpt-editor.php:252
+#: cpt-editor.php:326
 msgid "Add New Item:"
 msgstr ""
 
-#: cpt-editor.php:253
+#: cpt-editor.php:327
 msgid "The add new item text."
 msgstr ""
 
-#: cpt-editor.php:255
+#: cpt-editor.php:329
 msgid "Edit Item:"
 msgstr ""
 
-#: cpt-editor.php:256
+#: cpt-editor.php:330
 msgid "The edit item text."
 msgstr ""
 
-#: cpt-editor.php:258
+#: cpt-editor.php:332
 msgid "New Item:"
 msgstr ""
 
-#: cpt-editor.php:259
+#: cpt-editor.php:333
 msgid "The new item text."
 msgstr ""
 
-#: cpt-editor.php:261
+#: cpt-editor.php:335
 msgid "View Item:"
 msgstr ""
 
-#: cpt-editor.php:262
+#: cpt-editor.php:336
 msgid "The view item text."
 msgstr ""
 
-#: cpt-editor.php:264
+#: cpt-editor.php:338
 msgid "Search Items:"
 msgstr ""
 
-#: cpt-editor.php:265
+#: cpt-editor.php:339
 msgid "The search items text."
 msgstr ""
 
-#: cpt-editor.php:267
+#: cpt-editor.php:341
 msgid "Not Found:"
 msgstr ""
 
-#: cpt-editor.php:268
+#: cpt-editor.php:342
 msgid "The not found text."
 msgstr ""
 
-#: cpt-editor.php:270
+#: cpt-editor.php:344
 msgid "Not Found in Trash:"
 msgstr ""
 
-#: cpt-editor.php:271
+#: cpt-editor.php:345
 msgid "The not found in trash text."
 msgstr ""
 
-#: cpt-editor.php:273
+#: cpt-editor.php:347
 msgid "Parent Item Colon:"
 msgstr ""
 
-#: cpt-editor.php:274
+#: cpt-editor.php:348
 msgid "The parent item text. Only used for hierarchical post types."
 msgstr ""
 
-#: cpt-editor.php:277
+#: cpt-editor.php:351
 msgid "Menu Name:"
 msgstr ""
 
-#: cpt-editor.php:278
+#: cpt-editor.php:352
 msgid "The text used in the Dashboard's top level menu."
 msgstr ""
 
-#: cpt-editor.php:280
+#: cpt-editor.php:354
 msgid "All Items:"
 msgstr ""
 
-#: cpt-editor.php:281
-msgid "The text used in the Dashboard menu's 'all items' menu item."
+#: cpt-editor.php:355
+msgid "The text used in the Dashboard menu's 'all items' submenu item."
 msgstr ""
 
-#: cpt-editor.php:283
+#: cpt-editor.php:357
+msgid "Add New:"
+msgstr ""
+
+#: cpt-editor.php:358
+msgid "The text used in the Dashboard menu's 'add new' submenu item."
+msgstr ""
+
+#: cpt-editor.php:360
 msgid "Admin Bar Name:"
 msgstr ""
 
-#: cpt-editor.php:284
+#: cpt-editor.php:361
 msgid "The text used in the Admin Bar's 'New' menu."
 msgstr ""
 
-#: cpt-editor.php:290
+#: cpt-editor.php:367
 msgid "Insufficient privileges!"
 msgstr ""
 
-#: cpt-editor.php:336
+#: cpt-editor.php:413
 msgid ""
 "Custom Post Type updated. Your changes will be visible on your next page "
 "load. <a href=\"\">Reload page</a>"
 msgstr ""
 
-#: cpt-editor.php:345
+#: cpt-editor.php:422
 msgid "Labels"
 msgstr ""
 
-#: cpt-editor.php:346
+#: cpt-editor.php:423
 msgid ""
 "Here you can customise (override) one or more labels for this Custom Post "
 "Type."
 msgstr ""
 
-#: cpt-editor.php:347
+#: cpt-editor.php:424
 msgid "Customised Labels are shown in blue."
 msgstr ""
 
-#: cpt-editor.php:348
+#: cpt-editor.php:425
 msgid ""
 "To reset a label to its default, empty its text field. To reset all labels "
 "to their defaults, use the checkbox below:"
 msgstr ""
 
-#: cpt-editor.php:352
+#: cpt-editor.php:429
 msgid "Reset all labels to their defaults"
 msgstr ""
 
-#: cpt-editor.php:364
+#: cpt-editor.php:441
 msgid "%1s<br />(%2s)"
 msgstr ""
 
-#: cpt-editor.php:371
+#: cpt-editor.php:448
 msgid "[Empty]"
 msgstr ""
 
-#: cpt-editor.php:373
+#: cpt-editor.php:450
 msgid "%1s Default: %2s"
 msgstr ""
 
-#: cpt-editor.php:382
+#: cpt-editor.php:459
 msgid "Save Changes"
 msgstr ""
 
-#: cpt-editor.php:429
+#: cpt-editor.php:506
 msgid "&lArr; Back"
 msgstr ""
 
