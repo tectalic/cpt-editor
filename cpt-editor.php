@@ -3,7 +3,7 @@
 Plugin Name: Custom Post Type Editor
 Plugin URI: http://om4.com.au/wordpress-plugins/custom-post-type-editor/
 Description: Customise the text labels/names for any registered custom post type.
-Version: 1.0.1-beta
+Version: 1.0.1
 Author: OM4
 Author URI: http://om4.com.au/
 Text Domain: om4-cpt-editor
@@ -231,15 +231,15 @@ class OM4_CPT_Editor {
 
 						if ( !is_null($id) ) {
 							switch ( $label_name_to_override ) {
-								case 'menu_name':
+								case 'menu_name': // Top level menu item label
 									if ( isset($menu[$id][0]) )
 										$menu[$id][0] = $this->settings['types'][$post_type]['labels'][$label_name_to_override];
 									break;
-								case 'all_items':
+								case 'all_items': // 'All Items' sub menu label
 									if ( isset($submenu[$file][5][0]) )
 										$submenu[$file][5][0] = $this->settings['types'][$post_type]['labels'][$label_name_to_override];
 									break;
-								case 'add_new':
+								case 'add_new': // 'Add New' sub menu label
 									if ( isset($submenu[$file][10][0]) )
 										$submenu[$file][10][0] = $this->settings['types'][$post_type]['labels'][$label_name_to_override];
 									break;

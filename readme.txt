@@ -19,7 +19,6 @@ For example, you could customise the following Custom Post Types:
 * The `Posts` Custom Post Type (created by WordPress Core)
 * The `Pages` Custom Post Type (created by WordPress Core)
 * The `Media` Custom Post Type (created by WordPress Core)
-* The `Revisions` Custom Post Type (created by WordPress Core)
 * Any Custom Post Type that is created by a WordPress plugin
 * Any Custom Post Type that is created by a WordPress theme
 
@@ -61,7 +60,12 @@ Fork our [Github Repository](https://github.com/OM4/cpt-editor) and send us a pu
 == Changelog ==
 
 = 1.0.1 =
-* Add support for customising/overriding WordPress' built-in Posts, Pages and Media dashboard menu labels.
+* Add support for customising WordPress' built-in Posts, Pages and Media dashboard menu labels. Thanks to Aaron Rutley for testing this.
 
 = 1.0 =
 * Initial release.
+
+== Upgrade Notice ==
+
+= 1.0.1 =
+* Adds support for customising WordPress' built-in Posts, Pages and Media dashboard menu labels.
