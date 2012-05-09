@@ -93,7 +93,7 @@ class OM4_CPT_Editor {
 	 * Intialise I18n/Localisation
 	 */
 	function LoadDomain() {
-		load_plugin_textdomain( 'om4-cpt-editor', WP_PLUGIN_DIR . '/' . dirname( plugin_basename( __FILE__ ) ) );
+		load_plugin_textdomain( 'om4-cpt-editor', false, "{$this->dirname}/languages" );
 	}
 
 	/**

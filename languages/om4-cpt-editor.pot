@@ -1,0 +1,246 @@
+# Copyright (C) 2012 Custom Post Type Editor
+# This file is distributed under the same license as the Custom Post Type Editor package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Custom Post Type Editor 1.0\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/cpt-editor\n"
+"POT-Creation-Date: 2012-05-09 00:32:19+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2012-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: cpt-editor.php:174
+msgid "Custom Post Types"
+msgstr ""
+
+#: cpt-editor.php:204
+msgid "Registered Custom Post Types"
+msgstr ""
+
+#: cpt-editor.php:205
+msgid ""
+"Below is a list of registered custom post types. These post types are "
+"typically registered by WordPress core, WordPress themes or WordPress "
+"plugins."
+msgstr ""
+
+#: cpt-editor.php:206
+msgid "Click on a post type to view its details."
+msgstr ""
+
+#: cpt-editor.php:229
+msgid "Invalid Custom Post Type"
+msgstr ""
+
+#: cpt-editor.php:238
+msgid "Edit '%s' Custom Post Type"
+msgstr ""
+
+#: cpt-editor.php:243
+msgid "Name:"
+msgstr ""
+
+#: cpt-editor.php:244
+msgid "General name for the post type, usually plural."
+msgstr ""
+
+#: cpt-editor.php:246
+msgid "Singular Name:"
+msgstr ""
+
+#: cpt-editor.php:247
+msgid "Name for one object of this post type."
+msgstr ""
+
+#: cpt-editor.php:249
+msgid "Add New:"
+msgstr ""
+
+#: cpt-editor.php:250
+msgid "The add new text."
+msgstr ""
+
+#: cpt-editor.php:252
+msgid "Add New Item:"
+msgstr ""
+
+#: cpt-editor.php:253
+msgid "The add new item text."
+msgstr ""
+
+#: cpt-editor.php:255
+msgid "Edit Item:"
+msgstr ""
+
+#: cpt-editor.php:256
+msgid "The edit item text."
+msgstr ""
+
+#: cpt-editor.php:258
+msgid "New Item:"
+msgstr ""
+
+#: cpt-editor.php:259
+msgid "The new item text."
+msgstr ""
+
+#: cpt-editor.php:261
+msgid "View Item:"
+msgstr ""
+
+#: cpt-editor.php:262
+msgid "The view item text."
+msgstr ""
+
+#: cpt-editor.php:264
+msgid "Search Items:"
+msgstr ""
+
+#: cpt-editor.php:265
+msgid "The search items text."
+msgstr ""
+
+#: cpt-editor.php:267
+msgid "Not Found:"
+msgstr ""
+
+#: cpt-editor.php:268
+msgid "The not found text."
+msgstr ""
+
+#: cpt-editor.php:270
+msgid "Not Found in Trash:"
+msgstr ""
+
+#: cpt-editor.php:271
+msgid "The not found in trash text."
+msgstr ""
+
+#: cpt-editor.php:273
+msgid "Parent Item Colon:"
+msgstr ""
+
+#: cpt-editor.php:274
+msgid "The parent item text. Only used for hierarchical post types."
+msgstr ""
+
+#: cpt-editor.php:277
+msgid "Menu Name:"
+msgstr ""
+
+#: cpt-editor.php:278
+msgid "The text used in the Dashboard's top level menu."
+msgstr ""
+
+#: cpt-editor.php:280
+msgid "All Items:"
+msgstr ""
+
+#: cpt-editor.php:281
+msgid "The text used in the Dashboard menu's 'all items' menu item."
+msgstr ""
+
+#: cpt-editor.php:283
+msgid "Admin Bar Name:"
+msgstr ""
+
+#: cpt-editor.php:284
+msgid "The text used in the Admin Bar's 'New' menu."
+msgstr ""
+
+#: cpt-editor.php:290
+msgid "Insufficient privileges!"
+msgstr ""
+
+#: cpt-editor.php:336
+msgid ""
+"Custom Post Type updated. Your changes will be visible on your next page "
+"load. <a href=\"\">Reload page</a>"
+msgstr ""
+
+#: cpt-editor.php:345
+msgid "Labels"
+msgstr ""
+
+#: cpt-editor.php:346
+msgid ""
+"Here you can customise (override) one or more labels for this Custom Post "
+"Type."
+msgstr ""
+
+#: cpt-editor.php:347
+msgid "Customised Labels are shown in blue."
+msgstr ""
+
+#: cpt-editor.php:348
+msgid ""
+"To reset a label to its default, empty its text field. To reset all labels "
+"to their defaults, use the checkbox below:"
+msgstr ""
+
+#: cpt-editor.php:352
+msgid "Reset all labels to their defaults"
+msgstr ""
+
+#: cpt-editor.php:364
+msgid "%1s<br />(%2s)"
+msgstr ""
+
+#: cpt-editor.php:371
+msgid "[Empty]"
+msgstr ""
+
+#: cpt-editor.php:373
+msgid "%1s Default: %2s"
+msgstr ""
+
+#: cpt-editor.php:382
+msgid "Save Changes"
+msgstr ""
+
+#: cpt-editor.php:429
+msgid "&lArr; Back"
+msgstr ""
+
+#: inc/OM4_CPT_List_Table.php:66
+msgid "Custom Post Type"
+msgstr ""
+
+#: inc/OM4_CPT_List_Table.php:67
+msgid "Status"
+msgstr ""
+
+#: inc/OM4_CPT_List_Table.php:83
+msgid "<a href=\"%s\">Edit</a>"
+msgstr ""
+
+#: inc/OM4_CPT_List_Table.php:101
+msgid "Customised"
+msgstr ""
+
+#: inc/OM4_CPT_List_Table.php:103
+msgid "Default"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "Custom Post Type Editor"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "http://om4.com.au/wordpress-plugins/custom-post-type-editor/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Customise the text labels/names for any registered custom post type."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "OM4"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://om4.com.au/"
+msgstr ""
