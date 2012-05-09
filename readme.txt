@@ -51,6 +51,9 @@ No. It uses WordPress' hook/filter to override Custom Post Type definitions on-t
 
 No. If you deactivate this plugin, your Custom Post Type definitions will revert to their defaults.
 
+= I found a bug. How can I contribute a patch or bug fix? =
+Fork our [Github Repository](https://github.com/OM4/cpt-editor) and send us a pull request.
+
 == Screenshots ==
 1. The list of registered Custom Post Types
 1. The interface for editing a Custom Post Type
