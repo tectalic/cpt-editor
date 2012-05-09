@@ -418,8 +418,8 @@ class OM4_CPT_Editor {
 		?>
 		<form action="" method="post" id="edit_custom_post_type">
 			<h3><?php esc_html_e( 'Labels', 'om4-cpt-editor' );?></h3>
-			<p><?php esc_html_e( 'Here you can customize (override) one or more labels for this Custom Post Type.', 'om4-cpt-editor' ); ?></p>
-			<p><?php esc_html_e( 'Customised Labels are shown in blue.', 'om4-cpt-editor' ); ?></p>
+			<p><?php esc_html_e( 'This screen lets you customize one or more text or menu labels for this Custom Post Type.', 'om4-cpt-editor' ); ?></p>
+			<p><?php esc_html_e( 'Customized Labels are shown in blue.', 'om4-cpt-editor' ); ?></p>
 			<p><?php esc_html_e( 'To reset a label to its default, empty its text field. To reset all labels to their defaults, use the checkbox below:', 'om4-cpt-editor' ); ?></p>
 			<table class="form-table">
 				<tr class="form-field">
@@ -520,7 +520,7 @@ class OM4_CPT_Editor {
 	 * @param string $post_type The Custom Post Type name/identifier
 	 * @return bool
 	 */
-	public function IsCustomised( $post_type ) {
+	public function IsCustomized( $post_type ) {
 		return ( isset($this->settings['types'][$post_type]['labels']) && is_array($this->settings['types'][$post_type]['labels']) && count($this->settings['types'][$post_type]['labels']) );
 	}
 
@@ -529,7 +529,7 @@ class OM4_CPT_Editor {
 	 * @param string $post_type The Custom Post Type name/identifier
 	 * @return int
 	 */
-	public function NumberOfCustomisedLabels( $post_type ) {
+	public function NumberOfCustomizedLabels( $post_type ) {
 		return ( isset($this->settings['types'][$post_type]['labels']) && is_array($this->settings['types'][$post_type]['labels']) ) ? count($this->settings['types'][$post_type]['labels']) : 0;
 	}
 

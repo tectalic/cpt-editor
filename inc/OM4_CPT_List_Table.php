@@ -51,7 +51,7 @@ class OM4_CPT_List_Table extends WP_List_Table {
 			$this->items[] = array(
 				'title' => $post_type_object->label,
 				'name' => $post_type,
-				'status' => $this->instance->NumberOfCustomisedLabels($post_type)
+				'status' => $this->instance->NumberOfCustomizedLabels($post_type)
 			);
 		}
 
@@ -98,7 +98,7 @@ class OM4_CPT_List_Table extends WP_List_Table {
 
 	function column_status( $item ) {
 		if ( $item['status'] > 0 ) {
-			return __( 'Customised', 'om4-cpt-editor' );
+			return __( 'Customized', 'om4-cpt-editor' );
 		} else {
 			return __( 'Default', 'om4-cpt-editor' );
 		}
