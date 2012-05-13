@@ -14,6 +14,12 @@ Customize the text labels or menu names for any registered custom post type usin
 
 Customize the text labels or menu names for any registered custom post type using a simple Dashboard user interface. No PHP file editing is necessary!
 
+* Want to rename `Posts` to `News`?
+* Want to rename `Media` to `Files`?
+* Want to rename the WooThemes’ `Features` post type to `Tours`?
+
+You can do all of this (and more) using this plugin.
+
 For example, you could customize the following Custom Post Types:
 
 * The `Posts` Custom Post Type (created by WordPress Core)
@@ -22,15 +28,9 @@ For example, you could customize the following Custom Post Types:
 * Any Custom Post Type that is created by a WordPress plugin
 * Any Custom Post Type that is created by a WordPress theme
 
-This means that you no longer have to modify PHP files in order to rename a Custom Post Type! Using this plugin, you can now make those changes using a simple interface in your WordPress dashboard. See the [screenshots](http://wordpress.org/extend/plugins/cpt-editor/screenshots/) for details.
+This means that you no longer have to modify PHP files in order to rename a Custom Post Type! 
 
-* Want to rename `Posts` to `News`?
-* Want to rename `Media` to `Files`?
-* Want to rename the WooThemes’ `Features` post type to `Tours`?
-
-You can do all of this (and more) using this plugin.
-
-See the [Custom Post Type Editor Plugin](http://om4.com.au/wordpress-plugins/custom-post-type-editor/) home page for further information.
+See the [screenshots](http://wordpress.org/extend/plugins/cpt-editor/screenshots/) and [Custom Post Type Editor Plugin home page](http://om4.com.au/wordpress-plugins/custom-post-type-editor/) for further information.
 
 == Installation ==
 
@@ -49,6 +49,10 @@ No. It uses WordPress' hook/filter to override Custom Post Type definitions on-t
 = Does this plugin permanently change anything? =
 
 No. If you deactivate this plugin, your Custom Post Type definitions will revert to their defaults.
+
+= Does this plugin work with WordPress Multisite? =
+
+Yes - this plugin works with WordPress Multisite.
 
 = I found a bug. How can I contribute a patch or bug fix? =
 
