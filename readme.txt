@@ -50,7 +50,7 @@ It provides an easy way for you to modify/customise the *labels* of any register
 
 It doesn't allow you do other things such as changing a Custom Post Type's rewrite slug or body class. Changing those can cause styling or display issues with themes.
 
-If you look at [this WordPress Codex page](http://codex.wordpress.org/Function_Reference/register_post_type#Arguments), the `labels` values can be changed by this plugin. All other parameters (such as `description`, `public`, `exclude_from_search`, etc. ***cannot*** be customised using this plugin.
+If you look at [this WordPress Codex page](http://codex.wordpress.org/Function_Reference/register_post_type#Arguments), the `labels` values can be changed by this plugin. All other parameters (such as `description`, `public`, `exclude_from_search`, etc.) ***cannot*** be customised using this plugin.
 
 = Does this plugin modify any core WordPress, plugin or theme files? =
 
