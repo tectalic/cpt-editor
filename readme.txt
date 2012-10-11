@@ -3,7 +3,7 @@ Contributors: jamescollins, glenn-om4
 Donate link: http://om4.com.au/wordpress-plugins/#donate
 Tags: custom post type, cpt, post type, label, editor, cms, wp, multisite, wpmu
 Requires at least: 3.2
-Tested up to: 3.4
+Tested up to: 3.4.2
 Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -41,6 +41,16 @@ Installation of this plugin is simple:
 1. Navigate to Dashboard, Settings, Custom Post Types.
 
 == Frequently Asked Questions ==
+
+= What does this plugin do? =
+
+It provides an easy way for you to modify/customise the *labels* of any registered Custom Post Type. This includes WordPress' built-in post types, as well as any Custom Post Types created by a plugin or theme.
+
+= What doesn't this plugin do? =
+
+It doesn't allow you do other things such as changing a Custom Post Type's rewrite slug or body class. Changing those can cause styling or display issues with themes.
+
+If you look at [this WordPress Codex page](http://codex.wordpress.org/Function_Reference/register_post_type#Arguments), the `labels` values can be changed by this plugin. All other parameters (such as `description`, `public`, `exclude_from_search`, etc. ***cannot*** be customised using this plugin.
 
 = Does this plugin modify any core WordPress, plugin or theme files? =
 
