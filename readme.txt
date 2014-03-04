@@ -2,9 +2,9 @@
 Contributors: jamescollins, glenn-om4
 Donate link: http://om4.com.au/wordpress-plugins/#donate
 Tags: custom post type, cpt, post type, label, editor, cms, wp, multisite, wpmu
-Requires at least: 3.2
-Tested up to: 3.5
-Stable tag: 1.1
+Requires at least: 3.6
+Tested up to: 3.8
+Stable tag: 1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -76,6 +76,9 @@ Alternatively, you can report a bug on our [Issue Tracker](https://github.com/OM
 
 == Changelog ==
 
+= 1.2 =
+* WordPress 3.8 compatibility
+
 = 1.1 =
 * WordPress 3.5 compatibility
 * Documentation/FAQ updates
@@ -92,6 +95,9 @@ Alternatively, you can report a bug on our [Issue Tracker](https://github.com/OM
 * Initial release.
 
 == Upgrade Notice ==
+
+= 1.2 =
+* WordPress 3.8 compatibility
 
 = 1.1 =
 * WordPress 3.5 compatibility, documentation/FAQ updates
