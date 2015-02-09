@@ -5,7 +5,7 @@ Plugin URI: http://om4.com.au/wordpress-plugins/custom-post-type-editor/
 Description: Customize the text labels or menu names for any registered custom post type using a simple Dashboard user interface.
 Version: 1.2.3
 Author: OM4
-Author URI: http://om4.com.au/
+Author URI: https://om4.com.au/
 Text Domain: om4-cpt-editor
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html

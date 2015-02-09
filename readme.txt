@@ -1,6 +1,6 @@
 === Custom Post Type Editor ===
 Contributors: jamescollins, glenn-om4
-Donate link: http://om4.com.au/wordpress-plugins/#donate
+Donate link: https://om4.com.au/wordpress-plugins/#donate
 Tags: custom post type, cpt, post type, label, editor, cms, wp, multisite, wpmu
 Requires at least: 3.6
 Tested up to: 4.1
