@@ -1,5 +1,5 @@
 <?php
-/*  Copyright 2012 OM4 (email : info@om4.com.au)
+/*  Copyright 2012-2015 OM4 (email : info@om4.com.au)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -76,11 +76,11 @@ class OM4_CPT_List_Table extends WP_List_Table {
 	function column_name( $item ) {
 
 		// URL to the edit screen
-		$edit_url = esc_attr('?page=' . $_REQUEST['page'] . '&action=edit&name=' . $item['name'] );
+		$edit_url = add_query_arg( array( 'action' => 'edit', 'name' => $item['name']) );
 
 		//Build row actions
 		$actions = array(
-			'edit'      => sprintf( __('<a href="%s">Edit</a>', 'om4-cpt-editor'), $edit_url )
+			'edit'      => sprintf( __('<a href="%s">Edit</a>', 'om4-cpt-editor'), esc_url( $edit_url ) )
 		);
 
 		//Return the title contents
