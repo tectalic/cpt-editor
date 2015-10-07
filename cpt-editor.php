@@ -1,12 +1,12 @@
 <?php
 /*
 Plugin Name: Custom Post Type Editor
-Plugin URI: http://om4.com.au/wordpress-plugins/custom-post-type-editor/
+Plugin URI: https://om4.com.au/plugins/custom-post-type-editor/
 Description: Customize the text labels or menu names for any registered custom post type using a simple Dashboard user interface.
-Version: 1.2.4
+Version: 1.2.5
 Author: OM4
-Author URI: https://om4.com.au/
-Text Domain: om4-cpt-editor
+Author URI: https://om4.com.au/plugins/
+Text Domain: cpt-editor
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
@@ -91,7 +91,7 @@ class OM4_CPT_Editor {
 	 * Intialise I18n/Localisation
 	 */
 	function LoadDomain() {
-		load_plugin_textdomain( 'om4-cpt-editor', false, "{$this->dirname}/languages" );
+		load_plugin_textdomain( 'cpt-editor' );
 	}
 
 	/**
@@ -169,7 +169,7 @@ class OM4_CPT_Editor {
 	 * Set up the Admin Settings menu
 	 */
 	public function AdminMenu() {
-		add_options_page( __( 'Custom Post Types', 'om4-cpt-editor' ), __( 'Custom Post Types', 'om4-cpt-editor' ), 'manage_options', basename( __FILE__ ), array( $this, 'AdminPage' ) );
+		add_options_page( __( 'Custom Post Types', 'cpt-editor' ), __( 'Custom Post Types', 'cpt-editor' ), 'manage_options', basename( __FILE__ ), array( $this, 'AdminPage' ) );
 
 		$this->OverrideBuiltInCustomPostTypeMenuLabels();
 	}
@@ -276,9 +276,9 @@ class OM4_CPT_Editor {
 	private function AdminPageList() {
 		$this->AdminPageHeader();
 		?>
-		<h2><?php _e( 'Registered Custom Post Types', 'om4-cpt-editor' ); ?></h2>
-		<p><?php _e( 'Below is a list of registered custom post types. These post types are typically registered by WordPress core, WordPress themes or WordPress plugins.', 'om4-cpt-editor' ); ?></p>
-		<p><?php _e( 'Click on a post type to view its details.', 'om4-cpt-editor' ); ?></p>
+		<h2><?php _e( 'Registered Custom Post Types', 'cpt-editor' ); ?></h2>
+		<p><?php _e( 'Below is a list of registered custom post types. These post types are typically registered by WordPress core, WordPress themes or WordPress plugins.', 'cpt-editor' ); ?></p>
+		<p><?php _e( 'Click on a post type to view its details.', 'cpt-editor' ); ?></p>
 		<?php
 
 		require('inc/OM4_CPT_List_Table.php');
@@ -301,7 +301,7 @@ class OM4_CPT_Editor {
 		$custom_post_type_name = isset($custom_post_type->name) ? $custom_post_type->name : null;
 
 		if ( is_null($custom_post_type) ) {
-			echo '<p>' . __( 'Invalid Custom Post Type', 'om4-cpt-editor' ) . '</p>';
+			echo '<p>' . __( 'Invalid Custom Post Type', 'cpt-editor' ) . '</p>';
 			$this->BackLink();
 			$this->AdminPageFooter();
 			return;
@@ -310,59 +310,59 @@ class OM4_CPT_Editor {
 		$nonce = "{$this->option_name}_edit_custom_post_type_{$custom_post_type_name}";
 
 		?>
-		<h2><?php printf( esc_html__("Edit '%s' Custom Post Type", 'om4-cpt-editor'), $custom_post_type_name); ?></h2>
+		<h2><?php printf( esc_html__("Edit '%s' Custom Post Type", 'cpt-editor'), $custom_post_type_name); ?></h2>
 		<?php
 
 		/****** Label Definitions (used when displaying the Edit form) ******/
 		$labels = array();
-		$labels['name']['name'] = __( 'Name:', 'om4-cpt-editor' );
-		$labels['name']['description'] = __('General name for the post type, usually plural.', 'om4-cpt-editor' );
+		$labels['name']['name'] = __( 'Name:', 'cpt-editor' );
+		$labels['name']['description'] = __('General name for the post type, usually plural.', 'cpt-editor' );
 
-		$labels['singular_name']['name'] = __( 'Singular Name:', 'om4-cpt-editor' );
-		$labels['singular_name']['description'] = __('Name for one object of this post type.', 'om4-cpt-editor' );
+		$labels['singular_name']['name'] = __( 'Singular Name:', 'cpt-editor' );
+		$labels['singular_name']['description'] = __('Name for one object of this post type.', 'cpt-editor' );
 
-		$labels['add_new_item']['name'] = __( 'Add New Item:', 'om4-cpt-editor' );
-		$labels['add_new_item']['description'] = __('The add new item text.', 'om4-cpt-editor' );
+		$labels['add_new_item']['name'] = __( 'Add New Item:', 'cpt-editor' );
+		$labels['add_new_item']['description'] = __('The add new item text.', 'cpt-editor' );
 
-		$labels['edit_item']['name'] = __( 'Edit Item:', 'om4-cpt-editor' );
-		$labels['edit_item']['description'] = __('The edit item text.', 'om4-cpt-editor' );
+		$labels['edit_item']['name'] = __( 'Edit Item:', 'cpt-editor' );
+		$labels['edit_item']['description'] = __('The edit item text.', 'cpt-editor' );
 
-		$labels['new_item']['name'] = __( 'New Item:', 'om4-cpt-editor' );
-		$labels['new_item']['description'] = __('The new item text.', 'om4-cpt-editor' );
+		$labels['new_item']['name'] = __( 'New Item:', 'cpt-editor' );
+		$labels['new_item']['description'] = __('The new item text.', 'cpt-editor' );
 
-		$labels['view_item']['name'] = __( 'View Item:', 'om4-cpt-editor' );
-		$labels['view_item']['description'] = __('The view item text.', 'om4-cpt-editor' );
+		$labels['view_item']['name'] = __( 'View Item:', 'cpt-editor' );
+		$labels['view_item']['description'] = __('The view item text.', 'cpt-editor' );
 
-		$labels['search_items']['name'] = __( 'Search Items:', 'om4-cpt-editor' );
-		$labels['search_items']['description'] = __('The search items text.', 'om4-cpt-editor' );
+		$labels['search_items']['name'] = __( 'Search Items:', 'cpt-editor' );
+		$labels['search_items']['description'] = __('The search items text.', 'cpt-editor' );
 
-		$labels['not_found']['name'] = __( 'Not Found:', 'om4-cpt-editor' );
-		$labels['not_found']['description'] = __('The not found text.', 'om4-cpt-editor' );
+		$labels['not_found']['name'] = __( 'Not Found:', 'cpt-editor' );
+		$labels['not_found']['description'] = __('The not found text.', 'cpt-editor' );
 
-		$labels['not_found_in_trash']['name'] = __( 'Not Found in Trash:', 'om4-cpt-editor' );
-		$labels['not_found_in_trash']['description'] = __('The not found in trash text.', 'om4-cpt-editor' );
+		$labels['not_found_in_trash']['name'] = __( 'Not Found in Trash:', 'cpt-editor' );
+		$labels['not_found_in_trash']['description'] = __('The not found in trash text.', 'cpt-editor' );
 
-		$labels['parent_item_colon']['name'] = __( 'Parent Item Colon:', 'om4-cpt-editor' );
-		$labels['parent_item_colon']['description'] = __('The parent item text. Only used for hierarchical post types.', 'om4-cpt-editor' );
+		$labels['parent_item_colon']['name'] = __( 'Parent Item Colon:', 'cpt-editor' );
+		$labels['parent_item_colon']['description'] = __('The parent item text. Only used for hierarchical post types.', 'cpt-editor' );
 		$labels['parent_item_colon']['condition'] = 'hierarchical'; // Only display this label for hierarchical custom post types
 
-		$labels['menu_name']['name'] = __( 'Menu Name:', 'om4-cpt-editor' );
-		$labels['menu_name']['description'] = __('The text used in the Dashboard\'s top level menu.', 'om4-cpt-editor' );
+		$labels['menu_name']['name'] = __( 'Menu Name:', 'cpt-editor' );
+		$labels['menu_name']['description'] = __('The text used in the Dashboard\'s top level menu.', 'cpt-editor' );
 
-		$labels['all_items']['name'] = __( 'All Items:', 'om4-cpt-editor' );
-		$labels['all_items']['description'] = __('The text used in the Dashboard menu\'s \'all items\' submenu item.', 'om4-cpt-editor' );
+		$labels['all_items']['name'] = __( 'All Items:', 'cpt-editor' );
+		$labels['all_items']['description'] = __('The text used in the Dashboard menu\'s \'all items\' submenu item.', 'cpt-editor' );
 
-		$labels['add_new']['name'] = __( 'Add New:', 'om4-cpt-editor' );
-		$labels['add_new']['description'] =  __('The text used in the Dashboard menu\'s \'add new\' submenu item.', 'om4-cpt-editor' );
+		$labels['add_new']['name'] = __( 'Add New:', 'cpt-editor' );
+		$labels['add_new']['description'] =  __('The text used in the Dashboard menu\'s \'add new\' submenu item.', 'cpt-editor' );
 
-		$labels['name_admin_bar']['name'] = __( 'Admin Bar Name:', 'om4-cpt-editor' );
-		$labels['name_admin_bar']['description'] = __('The text used in the Admin Bar\'s \'New\' menu.', 'om4-cpt-editor' );
+		$labels['name_admin_bar']['name'] = __( 'Admin Bar Name:', 'cpt-editor' );
+		$labels['name_admin_bar']['description'] = __('The text used in the Admin Bar\'s \'New\' menu.', 'cpt-editor' );
 
 
 		if ( isset($_POST['action']) && 'edit_custom_post_type' == $_POST['action'] ) {
 
 			if ( !current_user_can('manage_options') ) {
-				wp_die( __('Insufficient privileges!', 'om4-cpt-editor') );
+				wp_die( __('Insufficient privileges!', 'cpt-editor') );
 			}
 			check_admin_referer($nonce);
 
@@ -408,7 +408,7 @@ class OM4_CPT_Editor {
 
 			if ( $needs_save ) {
 				$this->SaveSettings();
-				echo '<div class="updated"><p>' . __('Custom Post Type updated. Your changes will be visible on your next page load. <a href="">Reload page</a>', 'om4-cpt-editor') . '</p></div>';
+				echo '<div class="updated"><p>' . __('Custom Post Type updated. Your changes will be visible on your next page load. <a href="">Reload page</a>', 'cpt-editor') . '</p></div>';
 				$this->BackLink();
 				$this->AdminPageFooter();
 				return;
@@ -417,14 +417,14 @@ class OM4_CPT_Editor {
 
 		?>
 		<form action="" method="post" id="edit_custom_post_type">
-			<h3><?php esc_html_e( 'Labels', 'om4-cpt-editor' );?></h3>
-			<p><?php esc_html_e( 'This screen lets you customize one or more text or menu labels for this Custom Post Type.', 'om4-cpt-editor' ); ?></p>
-			<p><?php esc_html_e( 'Customized Labels are shown in blue.', 'om4-cpt-editor' ); ?></p>
-			<p><?php esc_html_e( 'To reset a label to its default, empty its text field. To reset all labels to their defaults, use the checkbox below:', 'om4-cpt-editor' ); ?></p>
+			<h3><?php esc_html_e( 'Labels', 'cpt-editor' );?></h3>
+			<p><?php esc_html_e( 'This screen lets you customize one or more text or menu labels for this Custom Post Type.', 'cpt-editor' ); ?></p>
+			<p><?php esc_html_e( 'Customized Labels are shown in blue.', 'cpt-editor' ); ?></p>
+			<p><?php esc_html_e( 'To reset a label to its default, empty its text field. To reset all labels to their defaults, use the checkbox below:', 'cpt-editor' ); ?></p>
 			<table class="form-table">
 				<tr class="form-field">
 					<th scope="row">&nbsp;</th>
-					<td><label for="reset_to_defaults"><input type="checkbox" name="reset_to_defaults" id="reset_to_defaults" value="1" ?><?php echo __( 'Reset all labels to their defaults', 'om4-cpt-editor' ); ?></label></td>
+					<td><label for="reset_to_defaults"><input type="checkbox" name="reset_to_defaults" id="reset_to_defaults" value="1" ?><?php echo __( 'Reset all labels to their defaults', 'cpt-editor' ); ?></label></td>
 				<?php
 				foreach ($labels as $label_name => $label_info ) {
 					if ( isset($label_info['condition']) ) {
@@ -436,16 +436,16 @@ class OM4_CPT_Editor {
 					}
 					?>
 					<tr class="form-field">
-						<th scope="row"><label for="<?php echo ($label_name); ?>"><?php printf(__('%1s<br />(%2s)', 'om4-cpt-editor'), esc_html($label_info['name']), esc_html($label_name) ); ?></label></th>
+						<th scope="row"><label for="<?php echo ($label_name); ?>"><?php printf(__('%1s<br />(%2s)', 'cpt-editor'), esc_html($label_info['name']), esc_html($label_name) ); ?></label></th>
 						<td>
 							<?php
 							$class = esc_attr( isset($this->settings['types'][$custom_post_type_name]['labels'][$label_name]) ? 'customized' : 'default' );
 							?>
 							<input name="<?php echo esc_attr($label_name); ?>" type="text" id="<?php esc_attr_e($label_name); ?>" value="<?php esc_attr_e($custom_post_type->labels->$label_name); ?>" class="<?php echo $class; ?>" />
 							<?php
-							$default = ($this->cpt_originals[$custom_post_type_name]->labels->$label_name) ? '<code>' . esc_html($this->cpt_originals[$custom_post_type_name]->labels->$label_name) . '</code>' : esc_html__('[Empty]', 'om4-cpt-editor');
+							$default = ($this->cpt_originals[$custom_post_type_name]->labels->$label_name) ? '<code>' . esc_html($this->cpt_originals[$custom_post_type_name]->labels->$label_name) . '</code>' : esc_html__('[Empty]', 'cpt-editor');
 							?>
-							<span class="description"><?php printf(__("%1s Default: %2s", 'om4-cpt-editor' ), esc_html($label_info['description']), $default); ?></span>
+							<span class="description"><?php printf(__("%1s Default: %2s", 'cpt-editor' ), esc_html($label_info['description']), $default); ?></span>
 						</td>
 					</tr>
 					<?php
@@ -454,7 +454,7 @@ class OM4_CPT_Editor {
 			</table>
 			<?php wp_nonce_field($nonce); ?>
 			<input type="hidden" name="action" value="edit_custom_post_type" />
-			<p class="submit"><input type="submit" name="submit" id="submit" class="button-primary" value="<?php esc_attr_e('Save Changes', 'om4-cpt-editor'); ?>"></p>
+			<p class="submit"><input type="submit" name="submit" id="submit" class="button-primary" value="<?php esc_attr_e('Save Changes', 'cpt-editor'); ?>"></p>
 		</form>
 		<?php
 		$this->BackLink();
@@ -501,7 +501,7 @@ class OM4_CPT_Editor {
 	 */
 	private function BackLink() {
 		?>
-		<p><a href="<?php echo esc_attr($this->base_url); ?>"><?php _e( '&lArr; Back', 'om4-cpt-editor' ); ?></a></p>
+		<p><a href="<?php echo esc_attr($this->base_url); ?>"><?php _e( '&lArr; Back', 'cpt-editor' ); ?></a></p>
 		<?php
 	}
 

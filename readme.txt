@@ -1,10 +1,10 @@
 === Custom Post Type Editor ===
 Contributors: jamescollins, glenn-om4
-Donate link: https://om4.com.au/wordpress-plugins/#donate
+Donate link: https://om4.com.au/plugins/#donate
 Tags: custom post type, cpt, post type, label, editor, cms, wp, multisite, wpmu
 Requires at least: 3.6
-Tested up to: 4.2
-Stable tag: 1.2.4
+Tested up to: 4.3.1
+Stable tag: 1.2.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -30,7 +30,7 @@ For example, you could customize the following Custom Post Types:
 
 This means that you no longer have to modify PHP files in order to rename a Custom Post Type! 
 
-See the [screenshots](http://wordpress.org/extend/plugins/cpt-editor/screenshots/) and [Custom Post Type Editor Plugin home page](http://om4.com.au/wordpress-plugins/custom-post-type-editor/) for further information.
+See the [screenshots](https://wordpress.org/plugins/cpt-editor/screenshots/) and [Custom Post Type Editor Plugin home page](https://om4.com.au/plugins/custom-post-type-editor/) for further information.
 
 == Installation ==
 
@@ -75,6 +75,11 @@ Alternatively, you can report a bug on our [Issue Tracker](https://github.com/OM
 1. The interface for editing a Custom Post Type
 
 == Changelog ==
+
+= 1.2.5 =
+* WordPress 4.3 compatibility.
+* Change plugin's textdomain to match the plugin's folder name in preparation for translate.wordpress.org translations.
+* Readme updates.
 
 = 1.2.4 =
 * More secure edit links.

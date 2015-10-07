@@ -63,8 +63,8 @@ class OM4_CPT_List_Table extends WP_List_Table {
 
 	function get_columns() {
 		$columns = array(
-			'name'     => __( 'Custom Post Type', 'om4-cpt-editor' )
-			,'status'     => __( 'Status', 'om4-cpt-editor' )
+			'name'     => __( 'Custom Post Type', 'cpt-editor' )
+			,'status'     => __( 'Status', 'cpt-editor' )
 		);
 		return $columns;
 	}
@@ -80,7 +80,7 @@ class OM4_CPT_List_Table extends WP_List_Table {
 
 		//Build row actions
 		$actions = array(
-			'edit'      => sprintf( __('<a href="%s">Edit</a>', 'om4-cpt-editor'), esc_url( $edit_url ) )
+			'edit'      => sprintf( __('<a href="%s">Edit</a>', 'cpt-editor'), esc_url( $edit_url ) )
 		);
 
 		//Return the title contents
@@ -98,9 +98,9 @@ class OM4_CPT_List_Table extends WP_List_Table {
 
 	function column_status( $item ) {
 		if ( $item['status'] > 0 ) {
-			return __( 'Customized', 'om4-cpt-editor' );
+			return __( 'Customized', 'cpt-editor' );
 		} else {
-			return __( 'Default', 'om4-cpt-editor' );
+			return __( 'Default', 'cpt-editor' );
 		}
 	}
 
