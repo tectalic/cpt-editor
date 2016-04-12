@@ -429,7 +429,7 @@ class OM4_CPT_Editor {
 				foreach ($labels as $label_name => $label_info ) {
 					if ( isset($label_info['condition']) ) {
 						// This label needs to satisfy a condition before it is displayed
-						if ( !$custom_post_type->$label_info['condition'] ) {
+						if ( !$custom_post_type->{$label_info['condition']} ) {
 							// Don't display this label
 							continue;
 						}
