@@ -78,6 +78,8 @@ Alternatively, you can report a bug on our [Issue Tracker](https://github.com/OM
 
 = 1.3 =
 * Add support for customizing a Custom Post Type's description. Thanks to LeodanEvolution for the suggestion.
+* Add support for the 4 new post type labels that were added in WordPress 4.3.
+* Add support for the 6 new post type labels that were added in WordPress 4.4.
 
 = 1.2.6 =
 * WordPress 4.5 compatibility.
@@ -122,7 +124,7 @@ Alternatively, you can report a bug on our [Issue Tracker](https://github.com/OM
 == Upgrade Notice ==
 
 = 1.3 =
-* Adds support for customizing a Custom Post Type's description
+* Adds support for customizing a Custom Post Type's description, and adds support for 10 new custom post type labels
 
 = 1.2 =
 * WordPress 3.8 compatibility

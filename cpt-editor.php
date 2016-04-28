@@ -369,6 +369,38 @@ class OM4_CPT_Editor {
 		$labels['name_admin_bar']['name'] = __( 'Admin Bar Name:', 'cpt-editor' );
 		$labels['name_admin_bar']['description'] = __('The text used in the Admin Bar\'s \'New\' menu.', 'cpt-editor' );
 
+		// New labels added in WordPress 4.3: https://make.wordpress.org/core/2015/12/11/additional-labels-for-custom-post-types-and-custom-taxonomies/
+		$labels['featured_image']['name'] = __( 'Featured Image:', 'cpt-editor' );
+		$labels['featured_image']['description'] = __('Overrides the \'Featured Image\' phrase for this post type.', 'cpt-editor' );
+
+		$labels['set_featured_image']['name'] = __( 'Set featured Image:', 'cpt-editor' );
+		$labels['set_featured_image']['description'] = __('Overrides the \'Set featured image\' phrase for this post type.', 'cpt-editor' );
+
+		$labels['remove_featured_image']['name'] = __( 'Remove featured Image:', 'cpt-editor' );
+		$labels['remove_featured_image']['description'] = __('Overrides the \'Remove featured image\' phrase for this post type.', 'cpt-editor' );
+
+		$labels['use_featured_image']['name'] = __( 'Use as featured Image:', 'cpt-editor' );
+		$labels['use_featured_image']['description'] = __('Overrides the \'Use as featured image\' phrase for this post type.', 'cpt-editor' );
+
+		// New labels added in WordPress 4.4: https://make.wordpress.org/core/2015/12/11/additional-labels-for-custom-post-types-and-custom-taxonomies/
+		$labels['archives']['name'] = __( 'Archives:', 'cpt-editor' );
+		$labels['archives']['description'] = __('The post type archive label used in nav menus.', 'cpt-editor' );
+
+		$labels['insert_into_item']['name'] = __( 'Insert into post:', 'cpt-editor' );
+		$labels['insert_into_item']['description'] = __('Overrides the \'Insert into post\'/\'Insert into page\' phrase (used when inserting media into a post).', 'cpt-editor' );
+
+		$labels['uploaded_to_this_item']['name'] = __( 'Uploaded to this post:', 'cpt-editor' );
+		$labels['uploaded_to_this_item']['description'] = __('Overrides the \'Uploaded to this post\'/\'Uploaded to this page\' phrase (used when viewing media attached to a post).', 'cpt-editor' );
+
+		$labels['filter_items_list']['name'] = __( 'Filter posts list:', 'cpt-editor' );
+		$labels['filter_items_list']['description'] = __('Screen reader text for the filter links heading on the post type listing screen.', 'cpt-editor' );
+
+		$labels['items_list_navigation']['name'] = __( 'Posts list navigation:', 'cpt-editor' );
+		$labels['items_list_navigation']['description'] = __('Screen reader text for the pagination heading on the post type listing screen.', 'cpt-editor' );
+
+		$labels['items_list']['name'] = __( 'Posts list:', 'cpt-editor' );
+		$labels['items_list']['description'] = __('Screen reader text for the items list heading on the post type listing screen.', 'cpt-editor' );
+
 
 		if ( isset($_POST['action']) && 'edit_custom_post_type' == $_POST['action'] ) {
 
