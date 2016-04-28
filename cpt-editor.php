@@ -2,8 +2,8 @@
 /*
 Plugin Name: Custom Post Type Editor
 Plugin URI: https://om4.com.au/plugins/custom-post-type-editor/
-Description: Customize the text labels or menu names for any registered custom post type using a simple Dashboard user interface.
-Version: 1.2.6
+Description: Customize the text labels, menu names or description for any registered custom post type using a simple Dashboard user interface.
+Version: 1.3
 Author: OM4
 Author URI: https://om4.com.au/plugins/
 Text Domain: cpt-editor
@@ -145,6 +145,12 @@ class OM4_CPT_Editor {
 			}
 			// Set the CPT's label in case it was changed. See register_post_type() (where $args->label = $args->labels->name)
 			$wp_post_types[$post_type]->label = $wp_post_types[$post_type]->labels->name;
+		}
+		if ( isset( $this->settings['types'][$post_type]['description'] ) ) {
+			if ( $this->settings['types'][$post_type]['description'] != $wp_post_types[$post_type]->description ) {
+				// The CPT description is customized, so override the default
+				$wp_post_types[$post_type]->description = $this->settings['types'][$post_type]['description'];
+			}
 		}
 	}
 
@@ -315,6 +321,11 @@ class OM4_CPT_Editor {
 
 		/****** Label Definitions (used when displaying the Edit form) ******/
 		$labels = array();
+
+		// Description isn't really a label, but it's easier this way :)
+		$labels['description']['name'] = __( 'Description:', 'cpt-editor' );
+		$labels['description']['description'] = __('A short descriptive summary of what the post type is.', 'cpt-editor' );
+
 		$labels['name']['name'] = __( 'Name:', 'cpt-editor' );
 		$labels['name']['description'] = __('General name for the post type, usually plural.', 'cpt-editor' );
 
@@ -373,6 +384,10 @@ class OM4_CPT_Editor {
 				if (isset( $this->settings['types'][$custom_post_type_name]['labels'] ) ) {
 					unset($this->settings['types'][$custom_post_type_name]['labels']);
 				}
+				// Reset description to its default value
+				if (isset($this->settings['types'][$custom_post_type_name]['description']) ) {
+					unset($this->settings['types'][$custom_post_type_name]['description']);
+				}
 				$needs_save = true;
 			} else {
 				// Process the labels
@@ -404,6 +419,33 @@ class OM4_CPT_Editor {
 
 					}
 				}
+
+				// Process the description
+				
+				if ( isset($_POST['description'] ) ) {
+
+					$_POST['description'] = wp_strip_all_tags( stripslashes($_POST['description']) );
+
+					if ( strlen($_POST['description']) > 0 ) {
+						// Some description has been entered in the form
+
+						if ( $_POST['description'] != $this->cpt_originals[$custom_post_type_name]->description ) {
+							// Description is customized from the default
+							$this->settings['types'][$custom_post_type_name]['description'] = $_POST['description'];
+							$needs_save = true;
+						} else {
+							// Description is the same as the default
+							unset($this->settings['types'][$custom_post_type_name]['description']);
+							$needs_save = true;
+						}
+
+					} else {
+						// No description text specified -> reset to default
+						unset($this->settings['types'][$custom_post_type_name]['description']);
+						$needs_save = true;
+					}
+
+				}
 			}
 
 			if ( $needs_save ) {
@@ -417,14 +459,13 @@ class OM4_CPT_Editor {
 
 		?>
 		<form action="" method="post" id="edit_custom_post_type">
-			<h3><?php esc_html_e( 'Labels', 'cpt-editor' );?></h3>
-			<p><?php esc_html_e( 'This screen lets you customize one or more text or menu labels for this Custom Post Type.', 'cpt-editor' ); ?></p>
-			<p><?php esc_html_e( 'Customized Labels are shown in blue.', 'cpt-editor' ); ?></p>
-			<p><?php esc_html_e( 'To reset a label to its default, empty its text field. To reset all labels to their defaults, use the checkbox below:', 'cpt-editor' ); ?></p>
+			<p><?php esc_html_e( 'This screen lets you customize the description and/or labels for this Custom Post Type.', 'cpt-editor' ); ?></p>
+			<p><?php esc_html_e( 'Customized fields are shown in blue.', 'cpt-editor' ); ?></p>
+			<p><?php esc_html_e( 'To reset a field to its default, empty its text field. To reset all to their defaults, use the checkbox below:', 'cpt-editor' ); ?></p>
 			<table class="form-table">
 				<tr class="form-field">
 					<th scope="row">&nbsp;</th>
-					<td><label for="reset_to_defaults"><input type="checkbox" name="reset_to_defaults" id="reset_to_defaults" value="1" ?><?php echo __( 'Reset all labels to their defaults', 'cpt-editor' ); ?></label></td>
+					<td><label for="reset_to_defaults"><input type="checkbox" name="reset_to_defaults" id="reset_to_defaults" value="1" ?><?php echo __( 'Reset all to their defaults', 'cpt-editor' ); ?></label></td>
 				<?php
 				foreach ($labels as $label_name => $label_info ) {
 					if ( isset($label_info['condition']) ) {
@@ -436,14 +477,40 @@ class OM4_CPT_Editor {
 					}
 					?>
 					<tr class="form-field">
-						<th scope="row"><label for="<?php echo ($label_name); ?>"><?php printf(__('%1s<br />(%2s)', 'cpt-editor'), esc_html($label_info['name']), esc_html($label_name) ); ?></label></th>
+						<th scope="row">
+							<label for="<?php echo ($label_name); ?>">
+								<?php
+								if ( 'description' == $label_name ) {
+									echo esc_html($label_info['name']);
+								} else {
+									printf(__('%1s<br />(%2s)', 'cpt-editor'), esc_html($label_info['name']), esc_html($label_name) );
+								}
+								?>
+							</label></th>
 						<td>
 							<?php
-							$class = esc_attr( isset($this->settings['types'][$custom_post_type_name]['labels'][$label_name]) ? 'customized' : 'default' );
+							$class = '';
+							if ( 'description' == $label_name ) {
+								$class = esc_attr( isset($this->settings['types'][$custom_post_type_name]['description']) ? 'customized' : 'default' );
+							} else {
+								$class = esc_attr( isset($this->settings['types'][$custom_post_type_name]['labels'][$label_name]) ? 'customized' : 'default' );
+							}
+
+							$value = '';
+							if ( 'description' == $label_name ) {
+								$value = $custom_post_type->description;
+							} else {
+								$value = $custom_post_type->labels->$label_name;
+							}
 							?>
-							<input name="<?php echo esc_attr($label_name); ?>" type="text" id="<?php esc_attr_e($label_name); ?>" value="<?php esc_attr_e($custom_post_type->labels->$label_name); ?>" class="<?php echo $class; ?>" />
+							<input name="<?php echo esc_attr($label_name); ?>" type="text" id="<?php esc_attr_e($label_name); ?>" value="<?php esc_attr_e($value); ?>" class="<?php echo $class; ?>" />
 							<?php
-							$default = ($this->cpt_originals[$custom_post_type_name]->labels->$label_name) ? '<code>' . esc_html($this->cpt_originals[$custom_post_type_name]->labels->$label_name) . '</code>' : esc_html__('[Empty]', 'cpt-editor');
+							$default = '';
+							if ( 'description' == $label_name ) {
+								$default = ($this->cpt_originals[$custom_post_type_name]->description) ? '<code>' . esc_html($this->cpt_originals[$custom_post_type_name]->description) . '</code>' : esc_html__('[Empty]', 'cpt-editor');
+							} else {
+								$default = ($this->cpt_originals[$custom_post_type_name]->labels->$label_name) ? '<code>' . esc_html($this->cpt_originals[$custom_post_type_name]->labels->$label_name) . '</code>' : esc_html__('[Empty]', 'cpt-editor');
+							}
 							?>
 							<span class="description"><?php printf(__("%1s Default: %2s", 'cpt-editor' ), esc_html($label_info['description']), $default); ?></span>
 						</td>
@@ -525,12 +592,16 @@ class OM4_CPT_Editor {
 	}
 
 	/**
-	 * The number of customized labels for the specified Custom Post Type
+	 * The number of customizations for the specified Custom Post Type
 	 * @param string $post_type The Custom Post Type name/identifier
 	 * @return int
 	 */
-	public function NumberOfCustomizedLabels( $post_type ) {
-		return ( isset($this->settings['types'][$post_type]['labels']) && is_array($this->settings['types'][$post_type]['labels']) ) ? count($this->settings['types'][$post_type]['labels']) : 0;
+	public function NumberOfCustomizations( $post_type ) {
+		$num = ( isset($this->settings['types'][$post_type]['labels']) && is_array($this->settings['types'][$post_type]['labels']) ) ? count($this->settings['types'][$post_type]['labels']) : 0;
+		if ( isset( $this->settings['types'][$post_type]['description'] ) ) {
+			$num++;
+		}
+		return $num;
 	}
 
 	/**

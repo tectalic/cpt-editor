@@ -1,18 +1,18 @@
 === Custom Post Type Editor ===
 Contributors: jamescollins, glenn-om4
 Donate link: https://om4.com.au/plugins/#donate
-Tags: custom post type, cpt, post type, label, editor, cms, wp, multisite, wpmu
+Tags: custom post type, cpt, post type, label, description, editor, cms, wp, multisite, wpmu
 Requires at least: 3.6
 Tested up to: 4.5
-Stable tag: 1.2.6
+Stable tag: 1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Customize the text labels or menu names for any registered custom post type using a simple Dashboard user interface.
+Customize the text labels, menu names or description for any registered custom post type using a simple Dashboard user interface.
 
 == Description ==
 
-Customize the text labels or menu names for any registered custom post type using a simple Dashboard user interface. No PHP file editing is necessary!
+Customize the text labels, menu names or description for any registered custom post type using a simple Dashboard user interface. No PHP file editing is necessary!
 
 * Want to rename `Posts` to `News`?
 * Want to rename `Media` to `Files`?
@@ -44,13 +44,13 @@ Installation of this plugin is simple:
 
 = What does this plugin do? =
 
-It provides an easy way for you to modify/customise the *labels* of any registered Custom Post Type. This includes WordPress' built-in post types, as well as any Custom Post Types created by a plugin or theme.
+It provides an easy way for you to modify/customise the *labels* and/or *description* of any registered Custom Post Type. This includes WordPress' built-in post types, as well as any Custom Post Types created by a plugin or theme.
 
 = What doesn't this plugin do? =
 
 It doesn't allow you do other things such as changing a Custom Post Type's rewrite slug or body class. Changing those can cause styling or display issues with themes.
 
-If you look at [this WordPress Codex page](http://codex.wordpress.org/Function_Reference/register_post_type#Arguments), the `labels` values can be changed by this plugin. All other parameters (such as `description`, `public`, `exclude_from_search`, etc.) ***cannot*** be customised using this plugin.
+If you look at [this WordPress Codex page](http://codex.wordpress.org/Function_Reference/register_post_type#Arguments), the `labels` values can be changed by this plugin. The `description` can also be changed by this plugin. All other parameters (such as `public`, `exclude_from_search`, etc.) ***cannot*** be customised using this plugin.
 
 = Does this plugin modify any core WordPress, plugin or theme files? =
 
@@ -75,6 +75,9 @@ Alternatively, you can report a bug on our [Issue Tracker](https://github.com/OM
 1. The interface for editing a Custom Post Type
 
 == Changelog ==
+
+= 1.3 =
+* Add support for customizing a Custom Post Type's description. Thanks to LeodanEvolution for the suggestion.
 
 = 1.2.6 =
 * WordPress 4.5 compatibility.
@@ -117,6 +120,9 @@ Alternatively, you can report a bug on our [Issue Tracker](https://github.com/OM
 * Initial release.
 
 == Upgrade Notice ==
+
+= 1.3 =
+* Adds support for customizing a Custom Post Type's description
 
 = 1.2 =
 * WordPress 3.8 compatibility

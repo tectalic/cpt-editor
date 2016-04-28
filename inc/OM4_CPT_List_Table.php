@@ -1,5 +1,5 @@
 <?php
-/*  Copyright 2012-2015 OM4 (email : info@om4.com.au)
+/*  Copyright 2012-2016 OM4 (email : plugins@om4.com.au)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -51,7 +51,7 @@ class OM4_CPT_List_Table extends WP_List_Table {
 			$this->items[] = array(
 				'title' => $post_type_object->label,
 				'name' => $post_type,
-				'status' => $this->instance->NumberOfCustomizedLabels($post_type)
+				'status' => $this->instance->NumberOfCustomizations($post_type)
 			);
 		}
 
