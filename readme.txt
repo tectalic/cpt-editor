@@ -4,7 +4,7 @@ Donate link: https://om4.com.au/plugins/#donate
 Tags: custom post type, cpt, post type, label, description, editor
 Requires at least: 3.6
 Tested up to: 4.7
-Stable tag: 1.3
+Stable tag: 1.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -75,6 +75,9 @@ Alternatively, you can report a bug on our [Issue Tracker](https://github.com/OM
 1. The interface for editing a Custom Post Type
 
 == Changelog ==
+
+= 1.4 =
+* Add support for the 2 new post type labels that were added in WordPress 4.7 (view_items and attributes).
 
 = 1.3 =
 * Add support for customizing a Custom Post Type's description. Thanks to LeodanEvolution for the suggestion.
