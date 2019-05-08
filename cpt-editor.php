@@ -88,7 +88,7 @@ class OM4_CPT_Editor {
 	}
 
 	/**
-	 * Intialise I18n/Localisation
+	 * Initialise I18n/Localisation
 	 */
 	function LoadDomain() {
 		load_plugin_textdomain( 'cpt-editor' );
@@ -459,7 +459,7 @@ class OM4_CPT_Editor {
 				}
 
 				// Process the description
-				
+
 				if ( isset($_POST['description'] ) ) {
 
 					$_POST['description'] = wp_strip_all_tags( stripslashes($_POST['description']) );
