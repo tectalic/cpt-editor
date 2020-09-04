@@ -1,0 +1,6 @@
+includes:
+  - vendor/szepeviktor/phpstan-wordpress/extension.neon
+parameters:
+  fileExtensions:
+    - php
+  level: 5

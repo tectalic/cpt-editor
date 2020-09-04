@@ -1,0 +1,13 @@
+{
+    "require-dev": {
+        "php-stubs/woocommerce-stubs": "^4.4.1",
+        "phpstan/phpstan-deprecation-rules": "^0.12.5",
+        "phpstan/phpstan": "^0.12.42",
+        "szepeviktor/phpstan-wordpress": "^0.6.2",
+        "wp-cli/wp-cli-bundle": "^2.4"
+    },
+    "scripts": {
+        "makepot": "vendor/bin/wp i18n make-pot . languages/cpt-editor.pot",
+        "phpstan": "vendor/bin/phpstan analyse inc cpt-editor.php"
+    }
+}

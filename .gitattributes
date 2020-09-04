@@ -1,0 +1,7 @@
+.editorconfig export-ignore
+.gitattributes export-ignore
+.github export-ignore
+.gitignore export-ignore
+.wordpress-org export-ignore
+composer.json export-ignore
+phpstan.neon export-ignore
