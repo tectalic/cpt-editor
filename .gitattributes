@@ -5,3 +5,4 @@
 .wordpress-org export-ignore
 composer.json export-ignore
 phpstan.neon export-ignore
+README.md export-ignore
