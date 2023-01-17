@@ -1,0 +1,8 @@
+{
+  "plugins": [
+    "."
+  ],
+  "mappings": {
+    "wp-content/uploads/wp-env": "./tests/wp-env"
+  }
+}
