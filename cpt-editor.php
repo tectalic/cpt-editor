@@ -233,22 +233,20 @@ class OM4_CPT_Editor {
 								break;
 						}
 
-						if ( !is_null($id) ) {
-							switch ( $label_name_to_override ) {
-								case 'menu_name': // Top level menu item label
-									if ( isset($menu[$id][0]) )
-										$menu[$id][0] = $this->settings['types'][$post_type]['labels'][$label_name_to_override];
-									break;
-								case 'all_items': // 'All Items' sub menu label
-									if ( isset($submenu[$file][5][0]) )
-										$submenu[$file][5][0] = $this->settings['types'][$post_type]['labels'][$label_name_to_override];
-									break;
-								case 'add_new': // 'Add New' sub menu label
-									if ( isset($submenu[$file][10][0]) )
-										$submenu[$file][10][0] = $this->settings['types'][$post_type]['labels'][$label_name_to_override];
-									break;
-							}
-						}
+                        switch ( $label_name_to_override ) {
+                            case 'menu_name': // Top level menu item label
+                                if ( isset($menu[$id][0]) )
+                                    $menu[$id][0] = $this->settings['types'][$post_type]['labels'][$label_name_to_override];
+                                break;
+                            case 'all_items': // 'All Items' sub menu label
+                                if ( isset($submenu[$file][5][0]) )
+                                    $submenu[$file][5][0] = $this->settings['types'][$post_type]['labels'][$label_name_to_override];
+                                break;
+                            case 'add_new': // 'Add New' sub menu label
+                                if ( isset($submenu[$file][10][0]) )
+                                    $submenu[$file][10][0] = $this->settings['types'][$post_type]['labels'][$label_name_to_override];
+                                break;
+                        }
 					}
 				}
 			}
