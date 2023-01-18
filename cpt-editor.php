@@ -4,7 +4,7 @@ Plugin Name: Custom Post Type Editor
 Plugin URI: https://om4.io/plugins/custom-post-type-editor/
 Description: Customize the text labels, menu names or description for any registered custom post type using a simple Dashboard user interface.
 Version: 1.5
-Author: OM4
+Author: OM4 Software
 Author URI: https://om4.io/
 Text Domain: cpt-editor
 License: GPLv2 or later
