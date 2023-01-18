@@ -1,5 +1,5 @@
 === Custom Post Type Editor ===
-Contributors: jamescollins, glenn-om4
+Contributors: jamescollins, om4csaba, om4
 Tags: custom post type, cpt, post type, label, description, editor
 Requires at least: 5.5
 Tested up to: 6.1
