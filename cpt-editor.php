@@ -499,6 +499,24 @@ class OM4_CPT_Editor {
 		$labels['attributes']['name']        = __( 'Attributes:', 'cpt-editor' );
 		$labels['attributes']['description'] = __( 'Label for the attributes meta box.', 'cpt-editor' );
 
+		/**
+		 * New labels added in WordPress 5.0.
+		 */
+		$labels['item_published']['name']        = __( 'Item Published:', 'cpt-editor' );
+		$labels['item_published']['description'] = __( 'Label used when an item is published.', 'cpt-editor' );
+
+		$labels['item_published_privately']['name']        = __( 'Item Published Privately:', 'cpt-editor' );
+		$labels['item_published_privately']['description'] = __( 'Label used when an item is published with private visibility.', 'cpt-editor' );
+
+		$labels['item_reverted_to_draft']['name']        = __( 'Item Reverted to Draft:', 'cpt-editor' );
+		$labels['item_reverted_to_draft']['description'] = __( 'Label used when an item is switched to a draft.', 'cpt-editor' );
+
+		$labels['item_scheduled']['name']        = __( 'Item Scheduled:', 'cpt-editor' );
+		$labels['item_scheduled']['description'] = __( 'Label used when an item is scheduled for publishing.', 'cpt-editor' );
+
+		$labels['item_updated']['name']        = __( 'Item Updated:', 'cpt-editor' );
+		$labels['item_updated']['description'] = __( 'Label used when an item is updated.', 'cpt-editor' );
+
 		if ( isset( $_POST['action'] ) && 'edit_custom_post_type' === $_POST['action'] ) {
 
 			if ( ! current_user_can( 'manage_options' ) ) {
