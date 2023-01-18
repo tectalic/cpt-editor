@@ -523,6 +523,15 @@ class OM4_CPT_Editor {
 		$labels['filter_by_date']['name']        = __( 'Filter by Date:', 'cpt-editor' );
 		$labels['filter_by_date']['description'] = __( 'Label for the date filter in list tables.', 'cpt-editor' );
 
+		/**
+		 * New labels added in WordPress 5.8.
+		 */
+		$labels['item_link']['name']        = __( 'Item Link:', 'cpt-editor' );
+		$labels['item_link']['description'] = __( 'Title for a navigation link block variation.', 'cpt-editor' );
+
+		$labels['item_link_description']['name']        = __( 'Item Link Description:', 'cpt-editor' );
+		$labels['item_link_description']['description'] = __( 'Description for a navigation link block variation.', 'cpt-editor' );
+
 		if ( isset( $_POST['action'] ) && 'edit_custom_post_type' === $_POST['action'] ) {
 
 			if ( ! current_user_can( 'manage_options' ) ) {
