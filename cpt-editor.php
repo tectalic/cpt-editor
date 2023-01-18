@@ -389,7 +389,11 @@ class OM4_CPT_Editor {
 			</h2>
 		<?php
 
-		/****** Label Definitions (used when displaying the Edit form) ******/
+		/**
+		 * Label Definitions (used when displaying the Edit form)
+		 *
+		 * @see get_post_type_labels() for a full list of supported labels.
+		 */
 		$labels = array();
 
 		// Description isn't really a label, but it's easier this way.
@@ -485,6 +489,15 @@ class OM4_CPT_Editor {
 
 		$labels['items_list']['name']        = __( 'Posts list:', 'cpt-editor' );
 		$labels['items_list']['description'] = __( 'Screen reader text for the items list heading on the post type listing screen.', 'cpt-editor' );
+
+		/**
+		 * New labels added in WordPress 4.7.
+		 */
+		$labels['view_items']['name']        = __( 'View Items:', 'cpt-editor' );
+		$labels['view_items']['description'] = __( 'Label for viewing post type archives.', 'cpt-editor' );
+
+		$labels['attributes']['name']        = __( 'Attributes:', 'cpt-editor' );
+		$labels['attributes']['description'] = __( 'Label for the attributes meta box.', 'cpt-editor' );
 
 		if ( isset( $_POST['action'] ) && 'edit_custom_post_type' === $_POST['action'] ) {
 
@@ -628,7 +641,7 @@ class OM4_CPT_Editor {
 							<span class="description">
 							<?php
 								// Translators: 1: Label Description. 2: Label Default.
-								esc_html( sprintf( __( '%1$1s Default: %2$2s', 'cpt-editor' ), $label_info['description'], $default ) );
+								echo wp_kses( sprintf( __( '%1$1s Default: %2$2s', 'cpt-editor' ), $label_info['description'], $default ), array( 'code' => array() ) );
 							?>
 								</span>
 						</td>
