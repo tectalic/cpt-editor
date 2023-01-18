@@ -517,6 +517,12 @@ class OM4_CPT_Editor {
 		$labels['item_updated']['name']        = __( 'Item Updated:', 'cpt-editor' );
 		$labels['item_updated']['description'] = __( 'Label used when an item is updated.', 'cpt-editor' );
 
+		/**
+		 * New labels added in WordPress 5.7.
+		 */
+		$labels['filter_by_date']['name']        = __( 'Filter by Date:', 'cpt-editor' );
+		$labels['filter_by_date']['description'] = __( 'Label for the date filter in list tables.', 'cpt-editor' );
+
 		if ( isset( $_POST['action'] ) && 'edit_custom_post_type' === $_POST['action'] ) {
 
 			if ( ! current_user_can( 'manage_options' ) ) {
