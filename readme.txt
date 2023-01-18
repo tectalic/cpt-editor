@@ -1,11 +1,12 @@
 === Custom Post Type Editor ===
 Contributors: jamescollins, glenn-om4
 Tags: custom post type, cpt, post type, label, description, editor
-Requires at least: 3.6
-Tested up to: 5.5
-Stable tag: 1.4.2
+Requires at least: 5.5
+Tested up to: 6.1
+Stable tag: 1.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Requires PHP: 7.4
 
 Customize the text labels, menu names or description for any registered custom post type using a simple Dashboard user interface.
 
@@ -15,7 +16,7 @@ Customize the text labels, menu names or description for any registered custom p
 
 * Want to rename `Posts` to `News`?
 * Want to rename `Media` to `Files`?
-* Want to rename the WooThemes’ `Features` post type to `Tours`?
+* Want to rename a `Portfolio` post type to `Projects`?
 
 You can do all of this (and more) using this plugin.
 
@@ -75,6 +76,16 @@ Alternatively, you can report a bug on our [Issue Tracker](https://github.com/OM
 
 == Changelog ==
 
+= 1.5.0 =
+* Add compatibility with latest WordPress versions (including 6.1).
+* Add support for new labels introduced in WordPress version 5.8 (`item_link` and `item_link_description`).
+* Add support for new labels introduced in WordPress version 5.7 (`filter_by_date`).
+* Add support for new labels introduced in WordPress version 5.0 (`item_published`, `item_published_privately`, `item_reverted_to_draft`, `item_scheduled`, and `item_updated`).
+* Add support for new labels introduced in WordPress version 4.7 (`view_items` and `attributes`).
+* PHP 8 compatibility.
+* Modernize code.
+* Security improvements for settings screens.
+
 = 1.4.2 =
 * Mark WordPress 5.5 compatible.
 
@@ -91,7 +102,7 @@ Alternatively, you can report a bug on our [Issue Tracker](https://github.com/OM
 
 = 1.2.6 =
 * WordPress 4.5 compatibility.
-* PHP 7 compatibility (a PHP notice no longer occurs)
+* PHP 7 compatibility (a PHP notice no longer occurs).
 
 = 1.2.5 =
 * WordPress 4.3 compatibility.
@@ -130,6 +141,9 @@ Alternatively, you can report a bug on our [Issue Tracker](https://github.com/OM
 * Initial release.
 
 == Upgrade Notice ==
+
+= 1.5 =
+* Adds support for new custom post type labels added in recent versions of WordPress.
 
 = 1.3 =
 * Adds support for customizing a Custom Post Type's description, and adds support for 10 new custom post type labels
