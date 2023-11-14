@@ -31,7 +31,7 @@ class OM4_CPT_List_Table extends WP_List_Table {
 	 *
 	 * @var OM4_CPT_Editor
 	 */
-	private OM4_CPT_Editor $instance;
+	private $instance;
 
 	/**
 	 * Constructor.
@@ -136,5 +136,4 @@ class OM4_CPT_List_Table extends WP_List_Table {
 			return __( 'Default', 'cpt-editor' );
 		}
 	}
-
 }

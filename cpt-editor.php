@@ -126,8 +126,7 @@ class OM4_CPT_Editor {
 			$this->settings          = $data['settings'];
 		}
 
-		add_action( 'registered_post_type', array( $this, 'post_type_registered' ), 10, 2 );
-
+		add_action( 'registered_post_type', array( $this, 'post_type_registered' ), 10 );
 	}
 
 	/**
@@ -155,7 +154,7 @@ class OM4_CPT_Editor {
 		if ( $this->installed_version !== $this->db_version ) {
 			// Upgrade tasks.
 			if ( 0 === $this->installed_version ) {
-				$this->installed_version ++;
+				++$this->installed_version;
 			}
 			$this->save_settings();
 		}
@@ -167,10 +166,9 @@ class OM4_CPT_Editor {
 	 * Override any labels that have been customized, and if we're in the backend save a backup of the
 	 * original CPT so that we can detect that its been modified.
 	 *
-	 * @param string       $post_type        Post type.
-	 * @param WP_Post_Type $post_type_object Arguments used to register the post type.
+	 * @param string $post_type Post type.
 	 */
-	public function post_type_registered( $post_type, $post_type_object ) {
+	public function post_type_registered( $post_type ) {
 		global $wp_post_types;
 
 		if ( $this->need_to_backup_custom_post_types() && ! isset( $this->cpt_originals[ $post_type ] ) ) {
@@ -764,7 +762,7 @@ class OM4_CPT_Editor {
 	public function number_of_customizations( $post_type ) {
 		$num = ( isset( $this->settings['types'][ $post_type ]['labels'] ) && is_array( $this->settings['types'][ $post_type ]['labels'] ) ) ? count( $this->settings['types'][ $post_type ]['labels'] ) : 0;
 		if ( isset( $this->settings['types'][ $post_type ]['description'] ) ) {
-			$num++;
+			++$num;
 		}
 		return $num;
 	}

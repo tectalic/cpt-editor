@@ -4,5 +4,6 @@
 .gitignore export-ignore
 .wordpress-org export-ignore
 composer.json export-ignore
+phpcs.xml export-ignore
 phpstan.neon export-ignore
 README.md export-ignore

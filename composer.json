@@ -20,9 +20,9 @@
   "scripts" : {
     "makepot" : "wp i18n make-pot . languages/cpt-editor.pot",
     "test:static" : "vendor/bin/phpstan analyse --memory-limit=1G",
-    "test:style" : "vendor/bin/phpcs -p -s .",
+    "test:style" : "vendor/bin/phpcs -p -s ",
     "test:style:fix" : [
-      "vendor/bin/phpcbf -p -s . || true",
+      "vendor/bin/phpcbf -p -s || true",
       "@test:style"
     ]
   }
