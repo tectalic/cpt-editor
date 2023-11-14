@@ -15,11 +15,6 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
 
-      - name: Display PHP environment
-        run: |
-          php -v
-          composer check-platform-reqs
-
       - name: Install Composer dependencies
         uses: ramsey/composer-install@v2
 
