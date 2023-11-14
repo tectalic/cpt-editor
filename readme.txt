@@ -1,12 +1,11 @@
 === Custom Post Type Editor ===
 Contributors: jamescollins, om4csaba, om4
 Tags: custom post type, cpt, post type, label, description, editor
-Requires at least: 5.5
-Tested up to: 6.1
-Stable tag: 1.5
+Requires at least: 6.0
+Tested up to: 6.4
+Stable tag: 1.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Requires PHP: 7.4
 
 Customize the text labels, menu names or description for any registered custom post type using a simple Dashboard user interface.
 
@@ -75,6 +74,10 @@ Alternatively, you can report a bug on our [Issue Tracker](https://github.com/OM
 1. The interface for editing a Custom Post Type
 
 == Changelog ==
+
+= 1.6.0 =
+* Minimum required WordPress version updated to 6.0.
+* Mark compatibility with WordPress version 6.4.
 
 = 1.5.0 =
 * Add compatibility with latest WordPress versions (including 6.1).

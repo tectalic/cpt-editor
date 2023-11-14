@@ -3,7 +3,7 @@
 Plugin Name: Custom Post Type Editor
 Plugin URI: https://om4.io/plugins/custom-post-type-editor/
 Description: Customize the text labels, menu names or description for any registered custom post type using a simple Dashboard user interface.
-Version: 1.5
+Version: 1.6
 Author: OM4 Software
 Author URI: https://om4.io/
 Text Domain: cpt-editor
@@ -12,7 +12,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 
 /*
-	Copyright 2012-2023 OM4 (email : plugins@om4.com.au)
+	Copyright 2012-2023 OM4 (email: plugins@om4.io    web: https://om4.io/)
 
 	This program is free software; you can redistribute it and/or modify
 	it under the terms of the GNU General Public License as published by
@@ -94,7 +94,7 @@ class OM4_CPT_Editor {
 	/**
 	 * Default settings.
 	 *
-	 * @var array
+	 * @var array{'types':array<string,array<string,string>>}
 	 */
 	protected $settings = array(
 		'types' => array(),
@@ -118,20 +118,21 @@ class OM4_CPT_Editor {
 
 		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
 
-		$this->installed_version = intval( get_option( $this->option_name ) );
+		$this->installed_version = absint( get_option( $this->option_name ) );
 
 		$data = get_option( $this->option_name );
 		if ( is_array( $data ) ) {
-			$this->installed_version = intval( $data['version'] );
+			$this->installed_version = absint( $data['version'] );
 			$this->settings          = $data['settings'];
 		}
 
-		add_action( 'registered_post_type', array( $this, 'post_type_registered' ), 10, 2 );
-
+		add_action( 'registered_post_type', array( $this, 'post_type_registered' ), 10 );
 	}
 
 	/**
 	 * Initialise I18n/Localisation.
+	 *
+	 * @return void
 	 */
 	public function load_domain() {
 		load_plugin_textdomain( 'cpt-editor' );
@@ -139,6 +140,8 @@ class OM4_CPT_Editor {
 
 	/**
 	 * Plugin Activation Tasks.
+	 *
+	 * @return void
 	 */
 	public function activate() {
 		// There aren't really any installation tasks (for now).
@@ -150,12 +153,14 @@ class OM4_CPT_Editor {
 
 	/**
 	 * Performs any database upgrade tasks if required.
+	 *
+	 * @return void
 	 */
 	public function check_version() {
 		if ( $this->installed_version !== $this->db_version ) {
 			// Upgrade tasks.
 			if ( 0 === $this->installed_version ) {
-				$this->installed_version ++;
+				++$this->installed_version;
 			}
 			$this->save_settings();
 		}
@@ -167,10 +172,10 @@ class OM4_CPT_Editor {
 	 * Override any labels that have been customized, and if we're in the backend save a backup of the
 	 * original CPT so that we can detect that its been modified.
 	 *
-	 * @param string       $post_type        Post type.
-	 * @param WP_Post_Type $post_type_object Arguments used to register the post type.
+	 * @param string $post_type Post type.
+	 * @return void
 	 */
-	public function post_type_registered( $post_type, $post_type_object ) {
+	public function post_type_registered( $post_type ) {
 		global $wp_post_types;
 
 		if ( $this->need_to_backup_custom_post_types() && ! isset( $this->cpt_originals[ $post_type ] ) ) {
@@ -220,6 +225,8 @@ class OM4_CPT_Editor {
 
 	/**
 	 * Set up the Admin Settings menu
+	 *
+	 * @return void
 	 */
 	public function admin_menu() {
 		add_options_page(
@@ -242,6 +249,8 @@ class OM4_CPT_Editor {
 	 *
 	 * This function checks to see if the user has modified the labels for any of these built-in custom post types,
 	 * and if so it manually overrides the dashboard menu so that it uses these defined labels.
+	 *
+	 * @return void
 	 */
 	private function override_built_in_custom_post_type_menu_labels() {
 		global $menu, $submenu;
@@ -323,6 +332,8 @@ class OM4_CPT_Editor {
 
 	/**
 	 * Admin Page Controller/Handler.
+	 *
+	 * @return void
 	 */
 	public function admin_page() {
 
@@ -330,15 +341,18 @@ class OM4_CPT_Editor {
 
         // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 		if ( ! isset( $_GET['action'] ) ) {
-			return $this->admin_page_list();
+			$this->admin_page_list();
+			return;
 		}
 
-		return $this->admin_page_edit();
+		$this->admin_page_edit();
 	}
 
 
 	/**
 	 * The Dashboard screen that lists all registered Custom Post Types.
+	 *
+	 * @return void
 	 */
 	private function admin_page_list() {
 		$this->admin_page_header();
@@ -359,6 +373,8 @@ class OM4_CPT_Editor {
 
 	/**
 	 * The Dashboard screen that lets the user edit/modify a Custom Post Type.
+	 *
+	 * @return void
 	 */
 	protected function admin_page_edit() {
 		if ( ! isset( $_GET['name'] ) ) {
@@ -694,6 +710,8 @@ class OM4_CPT_Editor {
 
 	/**
 	 * The header for the Dashboard screens.
+	 *
+	 * @return void
 	 */
 	private function admin_page_header() {
 		?>
@@ -729,6 +747,8 @@ class OM4_CPT_Editor {
 
 	/**
 	 * Link back.
+	 *
+	 * @return void
 	 */
 	private function back_link() {
 		?>
@@ -738,6 +758,8 @@ class OM4_CPT_Editor {
 
 	/**
 	 * The footer for the Dashboard screens.
+	 *
+	 * @return void
 	 */
 	private function admin_page_footer() {
 		?>
@@ -764,13 +786,15 @@ class OM4_CPT_Editor {
 	public function number_of_customizations( $post_type ) {
 		$num = ( isset( $this->settings['types'][ $post_type ]['labels'] ) && is_array( $this->settings['types'][ $post_type ]['labels'] ) ) ? count( $this->settings['types'][ $post_type ]['labels'] ) : 0;
 		if ( isset( $this->settings['types'][ $post_type ]['description'] ) ) {
-			$num++;
+			++$num;
 		}
 		return $num;
 	}
 
 	/**
 	 * Saves the plugin's settings to the database
+	 *
+	 * @return void
 	 */
 	protected function save_settings() {
 		$data = array_merge( array( 'version' => $this->installed_version ), array( 'settings' => $this->settings ) );
