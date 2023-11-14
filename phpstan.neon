@@ -1,7 +1,13 @@
+includes:
+	- vendor/szepeviktor/phpstan-wordpress/extension.neon
+	- vendor/phpstan/phpstan-deprecation-rules/rules.neon
 parameters:
-   paths:
-        - cpt-editor.php
-        - inc
-   fileExtensions:
-        - php
-   level: 5
+	scanDirectories:
+		- ../wordpress-develop/tests/phpunit/includes
+	paths:
+		- cpt-editor.php
+		- inc
+	fileExtensions:
+		- php
+	level: max
+	treatPhpDocTypesAsCertain: false

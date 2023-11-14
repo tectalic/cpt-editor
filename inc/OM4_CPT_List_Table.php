@@ -58,6 +58,8 @@ class OM4_CPT_List_Table extends WP_List_Table {
 
 	/**
 	 * Retrieve the list of custom post types
+	 *
+	 * @return void
 	 */
 	public function prepare_items() {
 		$post_types = get_post_types( array(), 'objects' );
@@ -65,7 +67,7 @@ class OM4_CPT_List_Table extends WP_List_Table {
 			$this->items[] = array(
 				'title'  => $post_type_object->label,
 				'name'   => $post_type,
-				'status' => $this->instance->number_of_customizations( $post_type ),
+				'status' => $this->instance->number_of_customizations( (string) $post_type ),
 			);
 		}
 
@@ -78,6 +80,7 @@ class OM4_CPT_List_Table extends WP_List_Table {
 	 * Gets a list of columns.
 	 *
 	 * @inheritdoc
+	 * @return array<string,string>
 	 */
 	public function get_columns() {
 		$columns = array(
@@ -91,7 +94,8 @@ class OM4_CPT_List_Table extends WP_List_Table {
 	/**
 	 * Generates content for a single row's name column.
 	 *
-	 * @param array $item The current item.
+	 * @param array<string,string> $item The current item.
+	 * @return string
 	 */
 	public function column_name( $item ) {
 		// URL to the edit screen.
@@ -125,7 +129,7 @@ class OM4_CPT_List_Table extends WP_List_Table {
 	/**
 	 * Generates content for a single row's status column.
 	 *
-	 * @param array $item The current item.
+	 * @param array<string,string> $item The current item.
 	 *
 	 * @return string|null
 	 */
