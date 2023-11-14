@@ -2,8 +2,6 @@ includes:
 	- vendor/szepeviktor/phpstan-wordpress/extension.neon
 	- vendor/phpstan/phpstan-deprecation-rules/rules.neon
 parameters:
-	scanDirectories:
-		- ../wordpress-develop/tests/phpunit/includes
 	paths:
 		- cpt-editor.php
 		- inc
