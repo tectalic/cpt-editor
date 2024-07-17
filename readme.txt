@@ -2,8 +2,8 @@
 Contributors: jamescollins, om4csaba, om4
 Tags: custom post type, cpt, post type, label, description, editor
 Requires at least: 6.0
-Tested up to: 6.5
-Stable tag: 1.6.1
+Tested up to: 6.6
+Stable tag: 1.6.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -74,6 +74,9 @@ Alternatively, you can report a bug on our [Issue Tracker](https://github.com/OM
 1. The interface for editing a Custom Post Type
 
 == Changelog ==
+
+= 1.6.2 =
+* Mark compatibility with WordPress version 6.6.
 
 = 1.6.1 =
 * Mark compatibility with WordPress version 6.5.
