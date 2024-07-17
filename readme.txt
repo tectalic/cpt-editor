@@ -75,6 +75,9 @@ Alternatively, you can report a bug on our [Issue Tracker](https://github.com/OM
 
 == Changelog ==
 
+= 1.6.3 =
+* Fix version number.
+
 = 1.6.2 =
 * Mark compatibility with WordPress version 6.6.
 
